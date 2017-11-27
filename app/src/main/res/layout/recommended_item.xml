@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/y10"
+    android:layout_marginLeft="@dimen/x35"
+    android:layout_marginRight="@dimen/x35"
+    android:layout_marginTop="@dimen/y10"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <com.example.asus.quarterofanhourdemo.view.iview.AnimationImage
+            android:id="@+id/recommend_item_tou"
+            android:layout_width="@dimen/x80"
+            android:layout_height="@dimen/y80"
+            android:layout_centerInParent="true"
+            android:layout_margin="10dp"
+            android:src="@drawable/raw_1500033586" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/recommend_title"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginBottom="3dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="天蝎喝牛奶"
+                android:textColor="@color/colorred"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/recommend_time"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="2017-05-23  14:25"
+                android:textColor="@color/colorhui"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/recommend_item_dong"
+            android:layout_width="@dimen/x65"
+            android:layout_height="@dimen/y60"
+            android:layout_margin="10dp"
+            android:background="@drawable/icon_open" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/recommend_item_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="天气美美,适合郊游"
+        android:textColor="@color/colorback"
+        android:textSize="15sp" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y550"
+        android:layout_marginTop="10dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y550"
+            android:background="@drawable/raw_1499917357" />
+        <LinearLayout
+            android:layout_marginLeft="@dimen/x600"
+            android:layout_width="@dimen/x100"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:button="@null"
+                android:text="1563"
+                android:gravity="center"
+                android:drawableTop="@drawable/raw_1499933216"
+                />
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:button="@null"
+                android:text="665"
+                android:gravity="center"
+                android:drawableTop="@drawable/raw_1499933789"
+                />
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:button="@null"
+                android:text="503"
+                android:gravity="center"
+                android:drawableTop="@drawable/raw_1499946865"
+                />
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:button="@null"
+                android:text="153"
+                android:gravity="center"
+                android:drawableTop="@drawable/raw_1499947389"
+                />
+
+
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/recommend_item_commentsone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="汽猪上高速  :"
+            android:textColor="@color/colorbule"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/recommend_item_commentsones"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="  不错"
+            android:textSize="13sp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/recommend_item_commentstwo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="汽猪上高速  :"
+            android:textColor="@color/colorbule"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/recommend_item_commentstwos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="  不错"
+            android:textSize="13sp" />
+
+    </LinearLayout>
+</LinearLayout>

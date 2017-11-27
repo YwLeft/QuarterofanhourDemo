@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">QuarterofanhourDemo</string>
+    <string name="recommend">推荐</string>
+    <string name="crosstalk">段子</string>
+    <string name="hot">热门</string>
+    <string name="video">视频</string>
+    <string name="Focuson">关注</string>
+
+</resources>

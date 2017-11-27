@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x30"
+        android:background="@color/colorbule" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorbule"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <com.example.asus.quarterofanhourdemo.view.iview.AnimationImage
+            android:layout_centerInParent="true"
+            android:layout_width="@dimen/x80"
+            android:layout_height="@dimen/y80"
+            android:layout_margin="10dp"
+            android:src="@drawable/raw_1499936862" />
+
+        <TextView
+            android:id="@+id/recommend_texttitle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/recommend"
+            android:textColor="@color/colorwhile"
+            android:textSize="20sp" />
+
+        <ImageView
+           android:id="@+id/recommend_imagexie"
+            android:layout_width="@dimen/x50"
+            android:layout_height="@dimen/x50"
+            android:layout_margin="10dp"
+            android:background="@drawable/raw_1500034665" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/fragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <RadioGroup
+        android:id="@+id/radio_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radio_rb01"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:checked="true"
+            android:drawableTop="@drawable/recommend_select"
+            android:gravity="center"
+            android:text="@string/recommend"
+            android:textColor="@color/colorbule"
+            android:textSize="15sp" />
+
+        <RadioButton
+            android:id="@+id/radio_rb02"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/crosstalk_select"
+            android:gravity="center"
+            android:text="@string/crosstalk"
+            android:textSize="15sp"
+            android:textColor="@color/colorhui"/>
+
+        <RadioButton
+            android:id="@+id/radio_rb03"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/video_select"
+            android:gravity="center"
+            android:text="@string/video"
+            android:textSize="15sp"
+            android:textColor="@color/colorhui"/>
+
+
+    </RadioGroup>
+
+</LinearLayout>
