@@ -1,5 +1,7 @@
 package com.example.asus.quarterofanhourdemo.view.acyivity;
 
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -11,13 +13,15 @@ import android.widget.TextView;
 
 import com.example.asus.quarterofanhourdemo.R;
 import com.example.asus.quarterofanhourdemo.base.BaseActivity;
-
 import com.example.asus.quarterofanhourdemo.base.BaseDataPresenter;
 import com.example.asus.quarterofanhourdemo.view.fragment.CrosstalkFragment;
 import com.example.asus.quarterofanhourdemo.view.fragment.RecommendFragment;
 import com.example.asus.quarterofanhourdemo.view.fragment.VideoFragment;
+import com.example.asus.quarterofanhourdemo.view.iview.AnimationImage;
+import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * 创建时间  2017/11/23 11:20
@@ -37,8 +41,11 @@ public class TheHomePageActivity extends BaseActivity implements View.OnClickLis
     RadioButton radioRb03;
     @BindView(R.id.radio_group)
     RadioGroup radioGroup;
-    private Fragment mf1,mf2,mf3;
+    @BindView(R.id.thehome_image)
+    AnimationImage thehomeImage;
+    private Fragment mf1, mf2, mf3;
     private FragmentManager fm;
+    private SlidingMenu leftMenu;
 
     @Override
     public BaseDataPresenter initPresenter() {
@@ -53,10 +60,12 @@ public class TheHomePageActivity extends BaseActivity implements View.OnClickLis
     @Override
     public void initView() {
 
-
+        initviews();
         radioRb01.setOnClickListener(this);
         radioRb02.setOnClickListener(this);
         radioRb03.setOnClickListener(this);
+
+        thehomeImage.setOnClickListener(this);
 
         mf1 = new RecommendFragment();
         mf2 = new CrosstalkFragment();
@@ -66,8 +75,29 @@ public class TheHomePageActivity extends BaseActivity implements View.OnClickLis
 
         FragmentTransaction ft = fm.beginTransaction();
 
-        ft.add(R.id.fragment,mf1,"mf1");
+        ft.add(R.id.fragment, mf1, "mf1");
         ft.commit();
+
+    }
+
+    @Override
+    protected boolean NoTile() {
+        return true;
+    }
+
+    private void initviews() {
+        leftMenu = new SlidingMenu(this);
+        View left = View.inflate(this, R.layout.side_left, null);
+        RadioButton radioButton = left.findViewById(R.id.side_left_Set);
+        leftMenu.setMenu(left);
+        leftMenu.setMode(SlidingMenu.LEFT);
+        leftMenu.setBehindOffsetRes(R.dimen.slidingmenu_offets);
+        leftMenu.setFadeDegree(0.35f);
+        leftMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_NONE);
+        leftMenu.attachToActivity(this, SlidingMenu.SLIDING_CONTENT);
+
+        radioButton.setOnClickListener(this);
+
 
     }
 
@@ -76,8 +106,8 @@ public class TheHomePageActivity extends BaseActivity implements View.OnClickLis
         FragmentTransaction ft = fm.beginTransaction();
         switch (view.getId()) {
             case R.id.radio_rb01:
-                if(!mf1.isAdded()){
-                    ft.add(R.id.fragment, mf1,"mf1");
+                if (!mf1.isAdded()) {
+                    ft.add(R.id.fragment, mf1, "mf1");
                 }
                 ft.show(mf1);
                 ft.hide(mf2);
@@ -89,8 +119,8 @@ public class TheHomePageActivity extends BaseActivity implements View.OnClickLis
                 ft.commit();
                 break;
             case R.id.radio_rb02:
-                if(!mf2.isAdded()){
-                    ft.add(R.id.fragment, mf2,"mf2");
+                if (!mf2.isAdded()) {
+                    ft.add(R.id.fragment, mf2, "mf2");
                 }
                 ft.show(mf2);
                 ft.hide(mf1);
@@ -102,8 +132,8 @@ public class TheHomePageActivity extends BaseActivity implements View.OnClickLis
                 ft.commit();
                 break;
             case R.id.radio_rb03:
-                if(!mf3.isAdded()){
-                    ft.add(R.id.fragment, mf3,"mf3");
+                if (!mf3.isAdded()) {
+                    ft.add(R.id.fragment, mf3, "mf3");
                 }
                 ft.show(mf3);
                 ft.hide(mf2);
@@ -114,8 +144,26 @@ public class TheHomePageActivity extends BaseActivity implements View.OnClickLis
                 recommendTexttitle.setText("视频");
                 ft.commit();
                 break;
+            case R.id.thehome_image:
+                //点击左侧的图像弹出左侧侧拉菜单
+                if (!leftMenu.isMenuShowing()){
+                    leftMenu.showMenu();
+                }
+                break;
+            case R.id.side_left_Set:
+                Intent intent = new Intent(this,SetUpThesActivity.class);
+                startActivity(intent);
+                break;
             default:
                 break;
         }
+    }
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // TODO: add setContentView(...) invocation
+        ButterKnife.bind(this);
     }
 }

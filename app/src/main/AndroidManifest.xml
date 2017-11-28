@@ -23,6 +23,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".view.acyivity.TheHomePageActivity" />
+        <activity android:name=".view.acyivity.SetUpThesActivity"/>
+        <activity android:name=".view.acyivity.LoginOneActivity"/>
+        <activity android:name=".view.acyivity.LoginTwoActivity"/>
     </application>
 
 </manifest>

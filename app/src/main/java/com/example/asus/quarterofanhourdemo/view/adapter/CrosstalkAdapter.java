@@ -33,14 +33,14 @@ public class CrosstalkAdapter extends RecyclerView.Adapter<CrosstalkAdapter.View
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.fragment_crosstalk_item, parent,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.crosstalk_item, parent, false);
         ViewHolder viewHolder = new ViewHolder(view);
         return viewHolder;
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.recommendTitle.setText(mlist_user.get(position).getCreatetime());
+        holder.recommendTime.setText(mlist_user.get(position).getCreatetime());
     }
 
     @Override
@@ -49,8 +49,8 @@ public class CrosstalkAdapter extends RecyclerView.Adapter<CrosstalkAdapter.View
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        @BindView(R.id.recommend_title)
-        TextView recommendTitle;
+        @BindView(R.id.recommend_time)
+        TextView recommendTime;
         public ViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);

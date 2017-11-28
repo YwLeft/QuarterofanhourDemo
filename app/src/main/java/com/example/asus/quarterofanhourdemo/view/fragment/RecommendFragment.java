@@ -44,7 +44,7 @@ public class RecommendFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanState) {
-        View view = inflater.inflate(R.layout.fragment_recommend, null);
+        View view = inflater.inflate(R.layout.fragment_recommend, container,false);
         unbinder = ButterKnife.bind(this, view);
         initview();
         return view;

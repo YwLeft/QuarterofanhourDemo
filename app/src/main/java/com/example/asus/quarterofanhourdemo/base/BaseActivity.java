@@ -1,5 +1,6 @@
 package com.example.asus.quarterofanhourdemo.base;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -23,14 +24,24 @@ public abstract class BaseActivity<P extends BaseDataPresenter> extends AppCompa
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         setContentView(getLayoutId());
+        if (NoTile()) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                //透明状态栏
+                getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+                //透明导航栏
+                getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+            }
+        }
+
         ButterKnife.bind(this);
         presenter = initPresenter();
         initView();
     }
 
     public abstract void initView();
+
+    protected abstract boolean NoTile();
 
     @Override
     protected void onDestroy() {

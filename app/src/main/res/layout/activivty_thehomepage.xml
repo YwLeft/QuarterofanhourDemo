@@ -17,6 +17,7 @@
         android:orientation="horizontal">
 
         <com.example.asus.quarterofanhourdemo.view.iview.AnimationImage
+            android:id="@+id/thehome_image"
             android:layout_centerInParent="true"
             android:layout_width="@dimen/x80"
             android:layout_height="@dimen/y80"

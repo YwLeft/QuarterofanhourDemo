@@ -56,6 +56,11 @@ public class MainActivity extends BaseActivity {
     }
 
     @Override
+    protected boolean NoTile() {
+        return true;
+    }
+
+    @Override
     protected void onDestroy() {
         super.onDestroy();
         timer.cancel();

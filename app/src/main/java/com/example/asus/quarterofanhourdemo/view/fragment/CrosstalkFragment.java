@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.asus.quarterofanhourdemo.R;
 import com.example.asus.quarterofanhourdemo.model.bean.CrosstalkBean;
@@ -69,22 +70,23 @@ public class CrosstalkFragment extends Fragment implements CrosstalkView{
 
     @Override
     public void onGetDataSucceed(CrosstalkBean bean) {
-        if (bean != null){
+        int code = Integer.parseInt(bean.getCode());
+        String msg = bean.getMsg();
+        if (bean != null&&code==0){
             mlist.addAll(bean.getData());
             for (CrosstalkBean.DataBean bean1:mlist){
                 mlist_user.add(bean1.getUser());
             }
+            initview();
+        }else if (code==2){
+            Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show();
+        }else {
+            Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show();
         }
-//        runOnUiThread(new Runnable() {
-//            @Override
-//            public void run() {
-                initview();
-//            }
-//        });
     }
 
     @Override
     public void onGetDataFail(String e) {
-
+        Toast.makeText(getActivity(), "网络错误", Toast.LENGTH_SHORT).show();
     }
 }
