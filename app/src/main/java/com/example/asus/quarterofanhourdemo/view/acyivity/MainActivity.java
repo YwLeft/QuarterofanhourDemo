@@ -6,7 +6,7 @@ import android.os.Message;
 
 import com.example.asus.quarterofanhourdemo.R;
 import com.example.asus.quarterofanhourdemo.base.BaseActivity;
-import com.example.asus.quarterofanhourdemo.base.BasePresenter;
+import com.example.asus.quarterofanhourdemo.base.BaseDataPresenter;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -29,7 +29,7 @@ public class MainActivity extends BaseActivity {
     private Timer timer;
 
     @Override
-    public BasePresenter initPresenter() {
+    public BaseDataPresenter initPresenter() {
         return null;
     }
 

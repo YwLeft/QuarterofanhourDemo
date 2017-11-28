@@ -1,13 +1,13 @@
 package com.example.asus.quarterofanhourdemo.model.bean;
 
-import com.example.asus.quarterofanhourdemo.model.net.BaseRequest;
+import java.util.List;
 
 /**
  * 创建时间  2017/11/27 9:28
  * 创建人    gaozhijie
  * 类描述    段子的封装类
  */
-public class CrosstalkBean extends BaseRequest{
+public class CrosstalkBean{
 
     /**
      * msg : 获取段子列表成功
@@ -15,7 +15,35 @@ public class CrosstalkBean extends BaseRequest{
      * data : [{"commentNum":null,"content":"nini","createTime":"2017-11-26T16:26:46","jid":1,"praiseNum":null,"shareNum":null,"uid":71,"user":{"age":null,"appkey":null,"appsecret":null,"createtime":"2017-11-23T18:20:55","email":null,"fans":null,"follow":null,"gender":0,"icon":"https://www.zhaoapi.cn/images/71.jpg","latitude":null,"longitude":null,"mobile":"18612991023","money":0,"nickname":"123456","password":"111111","praiseNum":null,"token":"58231D3E963D88765BB0130473BD3636","uid":71,"username":"18612991023"}},{"commentNum":null,"content":"nini","createTime":"2017-11-26T16:28:02","jid":2,"praiseNum":null,"shareNum":null,"uid":71,"user":{"age":null,"appkey":null,"appsecret":null,"createtime":"2017-11-23T18:20:55","email":null,"fans":null,"follow":null,"gender":0,"icon":"https://www.zhaoapi.cn/images/71.jpg","latitude":null,"longitude":null,"mobile":"18612991023","money":0,"nickname":"123456","password":"111111","praiseNum":null,"token":"58231D3E963D88765BB0130473BD3636","uid":71,"username":"18612991023"}},{"commentNum":null,"content":"nini","createTime":"2017-11-26T16:28:07","jid":3,"praiseNum":null,"shareNum":null,"uid":71,"user":{"age":null,"appkey":null,"appsecret":null,"createtime":"2017-11-23T18:20:55","email":null,"fans":null,"follow":null,"gender":0,"icon":"https://www.zhaoapi.cn/images/71.jpg","latitude":null,"longitude":null,"mobile":"18612991023","money":0,"nickname":"123456","password":"111111","praiseNum":null,"token":"58231D3E963D88765BB0130473BD3636","uid":71,"username":"18612991023"}},{"commentNum":null,"content":"nini","createTime":"2017-11-26T16:28:09","jid":4,"praiseNum":null,"shareNum":null,"uid":71,"user":{"age":null,"appkey":null,"appsecret":null,"createtime":"2017-11-23T18:20:55","email":null,"fans":null,"follow":null,"gender":0,"icon":"https://www.zhaoapi.cn/images/71.jpg","latitude":null,"longitude":null,"mobile":"18612991023","money":0,"nickname":"123456","password":"111111","praiseNum":null,"token":"58231D3E963D88765BB0130473BD3636","uid":71,"username":"18612991023"}},{"commentNum":null,"content":"nini","createTime":"2017-11-26T16:28:10","jid":5,"praiseNum":null,"shareNum":null,"uid":71,"user":{"age":null,"appkey":null,"appsecret":null,"createtime":"2017-11-23T18:20:55","email":null,"fans":null,"follow":null,"gender":0,"icon":"https://www.zhaoapi.cn/images/71.jpg","latitude":null,"longitude":null,"mobile":"18612991023","money":0,"nickname":"123456","password":"111111","praiseNum":null,"token":"58231D3E963D88765BB0130473BD3636","uid":71,"username":"18612991023"}},{"commentNum":null,"content":"nini","createTime":"2017-11-26T16:28:11","jid":6,"praiseNum":null,"shareNum":null,"uid":71,"user":{"age":null,"appkey":null,"appsecret":null,"createtime":"2017-11-23T18:20:55","email":null,"fans":null,"follow":null,"gender":0,"icon":"https://www.zhaoapi.cn/images/71.jpg","latitude":null,"longitude":null,"mobile":"18612991023","money":0,"nickname":"123456","password":"111111","praiseNum":null,"token":"58231D3E963D88765BB0130473BD3636","uid":71,"username":"18612991023"}},{"commentNum":null,"content":"nini","createTime":"2017-11-26T16:28:11","jid":7,"praiseNum":null,"shareNum":null,"uid":71,"user":{"age":null,"appkey":null,"appsecret":null,"createtime":"2017-11-23T18:20:55","email":null,"fans":null,"follow":null,"gender":0,"icon":"https://www.zhaoapi.cn/images/71.jpg","latitude":null,"longitude":null,"mobile":"18612991023","money":0,"nickname":"123456","password":"111111","praiseNum":null,"token":"58231D3E963D88765BB0130473BD3636","uid":71,"username":"18612991023"}},{"commentNum":null,"content":"nini","createTime":"2017-11-26T16:28:11","jid":8,"praiseNum":null,"shareNum":null,"uid":71,"user":{"age":null,"appkey":null,"appsecret":null,"createtime":"2017-11-23T18:20:55","email":null,"fans":null,"follow":null,"gender":0,"icon":"https://www.zhaoapi.cn/images/71.jpg","latitude":null,"longitude":null,"mobile":"18612991023","money":0,"nickname":"123456","password":"111111","praiseNum":null,"token":"58231D3E963D88765BB0130473BD3636","uid":71,"username":"18612991023"}},{"commentNum":null,"content":"nini","createTime":"2017-11-26T16:28:12","jid":9,"praiseNum":null,"shareNum":null,"uid":71,"user":{"age":null,"appkey":null,"appsecret":null,"createtime":"2017-11-23T18:20:55","email":null,"fans":null,"follow":null,"gender":0,"icon":"https://www.zhaoapi.cn/images/71.jpg","latitude":null,"longitude":null,"mobile":"18612991023","money":0,"nickname":"123456","password":"111111","praiseNum":null,"token":"58231D3E963D88765BB0130473BD3636","uid":71,"username":"18612991023"}},{"commentNum":null,"content":"nini","createTime":"2017-11-26T16:28:12","jid":10,"praiseNum":null,"shareNum":null,"uid":71,"user":{"age":null,"appkey":null,"appsecret":null,"createtime":"2017-11-23T18:20:55","email":null,"fans":null,"follow":null,"gender":0,"icon":"https://www.zhaoapi.cn/images/71.jpg","latitude":null,"longitude":null,"mobile":"18612991023","money":0,"nickname":"123456","password":"111111","praiseNum":null,"token":"58231D3E963D88765BB0130473BD3636","uid":71,"username":"18612991023"}}]
      */
 
+    private String msg;
+    private String code;
+    private List<DataBean> data;
 
+    public String getMsg() {
+        return msg;
+    }
+
+    public void setMsg(String msg) {
+        this.msg = msg;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public List<DataBean> getData() {
+        return data;
+    }
+
+    public void setData(List<DataBean> data) {
+        this.data = data;
+    }
+
+    public static class DataBean {
         /**
          * commentNum : null
          * content : nini
@@ -295,4 +323,5 @@ public class CrosstalkBean extends BaseRequest{
                 this.username = username;
             }
         }
+    }
 }

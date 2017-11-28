@@ -12,7 +12,7 @@ import butterknife.ButterKnife;
  * 创建人    gaozhijie
  * 类描述     Activity的基类
  */
-public abstract class BaseActivity<P extends BasePresenter> extends AppCompatActivity {
+public abstract class BaseActivity<P extends BaseDataPresenter> extends AppCompatActivity {
 
     public P presenter;
 

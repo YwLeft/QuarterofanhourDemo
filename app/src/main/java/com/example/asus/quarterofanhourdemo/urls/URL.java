@@ -7,6 +7,6 @@ package com.example.asus.quarterofanhourdemo.urls;
  */
 public class URL {
     //获取段子
-    private static final String CROSSTALK_URl = "https://www.zhaoapi.cn/quarter/getJokes";
+    public static final String CROSSTALK_URl = "https://www.zhaoapi.cn/quarter/getJokes";
 
 }
