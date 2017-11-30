@@ -1,9 +1,8 @@
 package com.example.asus.quarterofanhourdemo.view.acyivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.asus.quarterofanhourdemo.R;
@@ -14,15 +13,17 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * 创建时间  2017/11/28 19:11
+ * 创建时间  2017/11/29 9:13
  * 创建人    gaozhijie
- * 类描述    登陆第一个界面
+ * 类描述    创作页面
  */
-public class LoginOneActivity extends BaseActivity implements View.OnClickListener {
-    @BindView(R.id.login_one_image)
-    ImageView loginOneImage;
-    @BindView(R.id.login_one_title)
-    TextView loginOneTitle;
+public class CreationActivity extends BaseActivity implements View.OnClickListener {
+    @BindView(R.id.creation_call_off)
+    TextView creationCallOff;
+    @BindView(R.id.creation_video)
+    LinearLayout creationVideo;
+    @BindView(R.id.creation_crosstalk)
+    LinearLayout creationCrosstalk;
 
     @Override
     public BaseDataPresenter initPresenter() {
@@ -31,14 +32,12 @@ public class LoginOneActivity extends BaseActivity implements View.OnClickListen
 
     @Override
     public int getLayoutId() {
-        return R.layout.activity_login_one;
+        return R.layout.activity_creation;
     }
 
     @Override
     public void initView() {
-        loginOneImage.setOnClickListener(this);
-        loginOneTitle.setOnClickListener(this);
-
+        creationCallOff.setOnClickListener(this);
     }
 
     @Override
@@ -55,13 +54,9 @@ public class LoginOneActivity extends BaseActivity implements View.OnClickListen
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.login_one_image:
+        switch (view.getId()){
+            case R.id.creation_call_off:
                 finish();
-                break;
-            case R.id.login_one_title:
-                Intent intent = new Intent(this, LoginTwoActivity.class);
-                startActivity(intent);
                 break;
             default:
                 break;

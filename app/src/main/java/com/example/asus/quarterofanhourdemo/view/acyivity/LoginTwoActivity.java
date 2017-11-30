@@ -1,5 +1,6 @@
 package com.example.asus.quarterofanhourdemo.view.acyivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -49,6 +50,7 @@ public class LoginTwoActivity extends BaseActivity implements View.OnClickListen
     @Override
     public void initView() {
         loginTwoImage.setOnClickListener(this);
+        loginTwoRegistered.setOnClickListener(this);
     }
 
     @Override
@@ -62,9 +64,9 @@ public class LoginTwoActivity extends BaseActivity implements View.OnClickListen
             case R.id.login_two_image:
                 finish();
                 break;
-            case R.id.login_one_title:
-//                Intent intent = new Intent(this,LoginOneActivity.class);
-//                startActivity(intent);
+            case R.id.login_two_registered:
+                Intent intent = new Intent(this,ReferrerActivity.class);
+                startActivity(intent);
                 break;
             default:
                 break;

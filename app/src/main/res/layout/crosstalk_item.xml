@@ -14,12 +14,12 @@
         android:gravity="center"
         android:orientation="horizontal">
 
-        <com.example.asus.quarterofanhourdemo.view.iview.AnimationImage
-            android:id="@+id/recommend_item_tou"
+        <ImageView
+            android:id="@+id/recommend_item_tous"
             android:layout_width="@dimen/x80"
             android:layout_height="@dimen/y80"
-            android:layout_centerInParent="true"
-            android:src="@drawable/raw_1500033586" />
+
+           />
 
         <LinearLayout
             android:layout_width="0dp"
@@ -28,7 +28,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/recommend_title"
+                android:id="@+id/recommend_name"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_marginBottom="3dp"

@@ -7,8 +7,8 @@ import com.example.asus.quarterofanhourdemo.view.iview.CrosstalkView;
 
 /**
  * 创建时间  2017/11/27 16:17
- * 创建人    gaozhijie 段子的Presenter层
- * 类描述
+ * 创建人    gaozhijie
+ * 类描述    段子的Presenter层
  */
 public class CrosstalkPresenter extends BaseDataPresenter<CrosstalkView>{
 
@@ -19,7 +19,7 @@ public class CrosstalkPresenter extends BaseDataPresenter<CrosstalkView>{
         modes = new GoodsCrosstalkModes();
     }
 
-    public void getData(){
+    public void getData(String page){
         modes.getDataCrosstalk(new GoodsCrosstalkModes.Databack() {
             @Override
             public void setbutteck(CrosstalkBean bean) {
@@ -30,6 +30,6 @@ public class CrosstalkPresenter extends BaseDataPresenter<CrosstalkView>{
             public void setfile(String s) {
                 iView.onGetDataFail(s.toString());
             }
-        });
+        },page);
     }
 }

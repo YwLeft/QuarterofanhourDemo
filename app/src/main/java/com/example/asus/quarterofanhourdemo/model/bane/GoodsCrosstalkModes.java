@@ -6,6 +6,8 @@ import com.example.asus.quarterofanhourdemo.model.net.NetDataCallBack;
 import com.example.asus.quarterofanhourdemo.model.net.OkHttpClick;
 import com.example.asus.quarterofanhourdemo.urls.URL;
 
+import okhttp3.FormBody;
+
 /**
  * 创建时间  2017/11/27 14:56
  * 创建人    gaozhijie
@@ -20,8 +22,14 @@ public class GoodsCrosstalkModes {
     }
 
 
-    public void getDataCrosstalk(final Databack databack){
-        okHttpClick.getdata(URL.CROSSTALK_URl, new NetDataCallBack() {
+    public void getDataCrosstalk(final Databack databack,String page){
+        FormBody body = new FormBody.Builder()
+                .add("source","android")
+                .add("appVersion","101")
+                .add("page",page)
+                .build();
+
+        okHttpClick.getLoadDataPost(URL.CROSSTALK_URl, new NetDataCallBack() {
             @Override
             public void success(Object o) {
                 CrosstalkBean bean= (CrosstalkBean) o;
@@ -32,7 +40,7 @@ public class GoodsCrosstalkModes {
             public void faild(int positon, String str) {
                 databack.setfile(str.toString());
             }
-        },CrosstalkBean.class);
+        },CrosstalkBean.class,body);
 
     }
 

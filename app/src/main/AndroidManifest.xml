@@ -12,7 +12,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:name=".model.net.MyApp"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/raw_1499933216"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".view.acyivity.MainActivity">
@@ -26,6 +26,8 @@
         <activity android:name=".view.acyivity.SetUpThesActivity"/>
         <activity android:name=".view.acyivity.LoginOneActivity"/>
         <activity android:name=".view.acyivity.LoginTwoActivity"/>
+        <activity android:name=".view.acyivity.CreationActivity"/>
+        <activity android:name=".view.acyivity.ReferrerActivity"/>
     </application>
 
 </manifest>

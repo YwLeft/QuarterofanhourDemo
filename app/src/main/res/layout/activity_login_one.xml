@@ -27,8 +27,8 @@
             android:layout_width="@dimen/x200"
             android:layout_height="@dimen/y200"
             android:layout_marginTop="@dimen/y140"
-            android:background="@drawable/dot"
-            android:src="@drawable/logo" />
+            android:background="@drawable/logo"
+             />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="0dp"

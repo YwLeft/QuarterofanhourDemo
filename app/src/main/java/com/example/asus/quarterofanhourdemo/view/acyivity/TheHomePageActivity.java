@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -89,6 +90,7 @@ public class TheHomePageActivity extends BaseActivity implements View.OnClickLis
         leftMenu = new SlidingMenu(this);
         View left = View.inflate(this, R.layout.side_left, null);
         RadioButton radioButton = left.findViewById(R.id.side_left_Set);
+        LinearLayout linearLayout = left.findViewById(R.id.side_left);
         leftMenu.setMenu(left);
         leftMenu.setMode(SlidingMenu.LEFT);
         leftMenu.setBehindOffsetRes(R.dimen.slidingmenu_offets);
@@ -96,7 +98,9 @@ public class TheHomePageActivity extends BaseActivity implements View.OnClickLis
         leftMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_NONE);
         leftMenu.attachToActivity(this, SlidingMenu.SLIDING_CONTENT);
 
+        linearLayout.setOnClickListener(this);
         radioButton.setOnClickListener(this);
+        recommendImagexie.setOnClickListener(this);
 
 
     }
@@ -153,6 +157,12 @@ public class TheHomePageActivity extends BaseActivity implements View.OnClickLis
             case R.id.side_left_Set:
                 Intent intent = new Intent(this,SetUpThesActivity.class);
                 startActivity(intent);
+                break;
+            case R.id.recommend_imagexie:
+                Intent intenttwo = new Intent(this,CreationActivity.class);
+                startActivity(intenttwo);
+                break;
+            case R.id.side_left:
                 break;
             default:
                 break;

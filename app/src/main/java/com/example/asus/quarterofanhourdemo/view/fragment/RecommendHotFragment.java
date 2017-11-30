@@ -1,47 +1,42 @@
 package com.example.asus.quarterofanhourdemo.view.fragment;
 
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.example.asus.quarterofanhourdemo.R;
+import com.example.asus.quarterofanhourdemo.base.BaseDataPresenter;
+import com.example.asus.quarterofanhourdemo.base.BaseFragment;
 import com.example.asus.quarterofanhourdemo.view.adapter.HotAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
 
 /**
  * 创建时间  2017/11/23 18:45
  * 创建人    gaozhijie
  * 类描述    推荐子页面——热门页面
  */
-public class RecommendHotFragment extends Fragment {
+public class RecommendHotFragment extends BaseFragment {
 
-    Unbinder unbinder;
     @BindView(R.id.hot_recyclerview)
     RecyclerView hotRecyclerview;
     private List<Integer> mlist = new ArrayList<>();
     private List<String> mlist_ry = new ArrayList<>();
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanState) {
-        View view = inflater.inflate(R.layout.fragment_recommend_hot, container,false);
-        unbinder = ButterKnife.bind(this, view);
-        initview();
-        return view;
+    public BaseDataPresenter initPresenter() {
+        return null;
     }
 
-    private void initview() {
+    @Override
+    public int getLayoutId() {
+        return R.layout.fragment_recommend_hot;
+    }
+
+    @Override
+    public void initView() {
         //获取图片
         int resourceId01 = R.drawable.raw_1500258840;
         int resourceId02 = R.drawable.raw_1500258881;
@@ -60,14 +55,7 @@ public class RecommendHotFragment extends Fragment {
         mlist_ry.add("狮子喝雪碧");
         mlist_ry.add("双鱼喝果粒橙");
         hotRecyclerview.setLayoutManager(new LinearLayoutManager(getActivity()));
-        HotAdapter adapter = new HotAdapter(mlist_ry,getActivity(),mlist);
+        HotAdapter adapter = new HotAdapter(mlist_ry, getActivity(), mlist);
         hotRecyclerview.setAdapter(adapter);
-
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        unbinder.unbind();
     }
 }

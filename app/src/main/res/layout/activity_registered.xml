@@ -17,7 +17,7 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:id="@+id/login_two_image"
+            android:id="@+id/referrer_image"
             android:layout_width="@dimen/x40"
             android:layout_height="@dimen/y40"
             android:layout_margin="10dp"
@@ -29,11 +29,11 @@
             android:layout_weight="1" />
 
         <TextView
-            android:id="@+id/login_two_registered"
+            android:id="@+id/referrer_registered"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="@dimen/x40"
-            android:text="@string/Registered_account"
+            android:text="@string/referrer_account"
             android:textColor="@color/colorhui"
             android:textSize="20sp" />
     </LinearLayout>
@@ -46,19 +46,19 @@
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/images"
             android:layout_width="@dimen/x200"
             android:layout_height="@dimen/y200"
             android:layout_marginTop="@dimen/y100"
-            android:background="@drawable/logo"/>
-
+            android:background="@drawable/logo"
+            />
 
         <LinearLayout
             android:layout_marginTop="@dimen/x60"
-            android:layout_width="@dimen/x600"
+            android:layout_width="@dimen/x660"
             android:layout_height="@dimen/y200"
             android:background="@drawable/dotlogin"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            >
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -69,20 +69,14 @@
                 android:gravity="center"
                 android:orientation="horizontal">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/account"
-                    android:textColor="@color/colorhui"
-                    android:textSize="15sp" />
-
                 <EditText
-                    android:id="@+id/login_two_account"
+                    android:id="@+id/referrer_account"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:layout_marginLeft="@dimen/x20"
-                    android:background="@null" />
+                    android:background="@null"
+                    android:hint="@string/hint_password"
+                    android:textColor="@color/colorhui"/>
             </LinearLayout>
 
             <View
@@ -101,46 +95,32 @@
                 android:gravity="center"
                 android:orientation="horizontal">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/password"
-                    android:textColor="@color/colorhui"
-                    android:textSize="15sp" />
-
                 <EditText
-                    android:id="@+id/login_two_password"
+                    android:id="@+id/referrer_password"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:layout_marginLeft="@dimen/x20"
                     android:background="@null"
-                    android:inputType="textPassword"/>
+                    android:hint="@string/hint_account"
+                    android:textColor="@color/colorhui"
+                    android:inputType="textPassword"
+                    />
             </LinearLayout>
 
         </LinearLayout>
 
         <Button
-            android:id="@+id/login_two_login"
+            android:id="@+id/referrer_login"
             android:layout_width="@dimen/x600"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/x60"
             android:background="@drawable/dotlogintwo"
-            android:text="@string/login_two"
+            android:text="@string/referrer"
             android:textColor="@color/colorwhile"
             android:textSize="15sp" />
 
         <TextView
-            android:id="@+id/login_two_Forgot_password"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/Forgot_password"
-            android:textColor="@color/colorhui"
-            android:textSize="15sp"
-            android:layout_marginLeft="@dimen/x240"
-            android:layout_marginTop="@dimen/x40"/>
-        <TextView
-            android:id="@+id/login_two_Visitors_login"
+            android:id="@+id/referrer_Visitors_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/Visitors_login"

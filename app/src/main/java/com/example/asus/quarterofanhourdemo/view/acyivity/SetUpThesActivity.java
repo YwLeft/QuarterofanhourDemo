@@ -61,6 +61,7 @@ public class SetUpThesActivity extends BaseActivity implements View.OnClickListe
             case R.id.return_login:
                 Intent intent = new Intent(this,LoginOneActivity.class);
                 startActivity(intent);
+                finish();
                 break;
             default:
                 break;

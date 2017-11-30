@@ -8,12 +8,12 @@ import java.util.List;
 /**
  * 创建时间  2017/11/23 20:00
  * 创建人    gaozhijie
- * 类描述	ViewPager+Fragment 的适配器
+ * 类描述	ViewPager+Fragment 的适配器(推荐)
  */
-public class ViewPagerAdapter extends FragmentPagerAdapter {
+public class RecommendViewPagerAdapter extends FragmentPagerAdapter {
 	private List<Fragment> mlist;
 
-	public ViewPagerAdapter(FragmentManager fm,List<Fragment> mlist) {
+	public RecommendViewPagerAdapter(FragmentManager fm, List<Fragment> mlist) {
 		super(fm);
 		this.mlist = mlist;
 		notifyDataSetChanged();

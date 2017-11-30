@@ -5,10 +5,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.asus.quarterofanhourdemo.R;
 import com.example.asus.quarterofanhourdemo.model.bean.CrosstalkBean;
+import com.example.asus.quarterofanhourdemo.view.iview.GlideCircleTransform;
 
 import java.util.List;
 
@@ -21,14 +24,12 @@ import butterknife.ButterKnife;
  * 类描述      段子适配器
  */
 public class CrosstalkAdapter extends RecyclerView.Adapter<CrosstalkAdapter.ViewHolder> {
-    List<CrosstalkBean.DataBean.UserBean> mlist_user;
     Context context;
+    List<CrosstalkBean.DataBean> mlist;
 
-
-
-    public CrosstalkAdapter(List<CrosstalkBean.DataBean.UserBean> mlist_user, Context context) {
+    public CrosstalkAdapter(List<CrosstalkBean.DataBean> mlist, Context context) {
         this.context = context;
-        this.mlist_user = mlist_user;
+        this.mlist = mlist;
     }
 
     @Override
@@ -40,17 +41,31 @@ public class CrosstalkAdapter extends RecyclerView.Adapter<CrosstalkAdapter.View
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.recommendTime.setText(mlist_user.get(position).getCreatetime());
+        CrosstalkBean.DataBean dataBean = mlist.get(position);
+        holder.recommendTime.setText(dataBean.getCreateTime());
+        holder.recommendName.setText(dataBean.getUser().getNickname());
+        Glide.with(context)
+                .load(dataBean.getUser().getIcon())
+                .centerCrop()
+                .error(R.mipmap.ic_launcher_round)
+                //.placeholder(R.mipmap.ic_launcher_round)
+                .transform(new GlideCircleTransform(context))
+                .into(holder.recommendItemTou);
+
     }
 
     @Override
     public int getItemCount() {
-        return mlist_user == null ? 0 : mlist_user.size();
+        return mlist == null ? 0 : mlist.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.recommend_time)
         TextView recommendTime;
+        @BindView(R.id.recommend_item_tous)
+        ImageView recommendItemTou;
+        @BindView(R.id.recommend_name)
+        TextView recommendName;
         public ViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);

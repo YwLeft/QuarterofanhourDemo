@@ -22,7 +22,7 @@ import static android.icu.text.DateTimePatternGenerator.PatternInfo.OK;
  * 创建人    gaozhijie
  * 类描述      ok网络请求
  */
-public class OkHttpClick {
+public class OkHttpClick extends OkHttpClient {
     protected NetDataCallBack netDataCallback;
     private Handler mhand = new Handler();
 

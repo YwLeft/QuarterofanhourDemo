@@ -1,32 +1,28 @@
 package com.example.asus.quarterofanhourdemo.view.fragment;
 
-import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.example.asus.quarterofanhourdemo.R;
-import com.example.asus.quarterofanhourdemo.view.adapter.ViewPagerAdapter;
+import com.example.asus.quarterofanhourdemo.base.BaseDataPresenter;
+import com.example.asus.quarterofanhourdemo.base.BaseFragment;
+import com.example.asus.quarterofanhourdemo.view.adapter.RecommendViewPagerAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
 
 /**
  * 创建时间  2017/11/23 18:45
  * 创建人    gaozhijie
  * 类描述      推荐页面
  */
-public class RecommendFragment extends Fragment {
+public class RecommendFragment extends BaseFragment {
 
     @BindView(R.id.recommend_hot)
     RadioButton recommendHot;
@@ -39,23 +35,24 @@ public class RecommendFragment extends Fragment {
     @BindView(R.id.view)
     View ml;
     private List<Fragment> mlist = new ArrayList<>();
-    Unbinder unbinder;
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanState) {
-        View view = inflater.inflate(R.layout.fragment_recommend, container,false);
-        unbinder = ButterKnife.bind(this, view);
-        initview();
-        return view;
+    public BaseDataPresenter initPresenter() {
+        return null;
     }
 
-    private void initview() {
+    @Override
+    public int getLayoutId() {
+        return R.layout.fragment_recommend;
+    }
+
+    @Override
+    public void initView() {
         mlist.add(new RecommendHotFragment());
         mlist.add(new RecommendFocusonFragment());
 
         FragmentManager fm = getFragmentManager();
-        ViewPagerAdapter madapter = new ViewPagerAdapter(fm, mlist);
+        RecommendViewPagerAdapter madapter = new RecommendViewPagerAdapter(fm, mlist);
         recommendViewpager.setAdapter(madapter);
 
         recommendViewpager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -99,10 +96,5 @@ public class RecommendFragment extends Fragment {
         });
     }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        unbinder.unbind();
-    }
 
 }
