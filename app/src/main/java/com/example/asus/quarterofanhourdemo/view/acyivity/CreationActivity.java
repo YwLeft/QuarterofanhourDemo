@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.asus.quarterofanhourdemo.R;
 import com.example.asus.quarterofanhourdemo.base.BaseActivity;
@@ -38,6 +39,8 @@ public class CreationActivity extends BaseActivity implements View.OnClickListen
     @Override
     public void initView() {
         creationCallOff.setOnClickListener(this);
+        creationVideo.setOnClickListener(this);
+        creationCrosstalk.setOnClickListener(this);
     }
 
     @Override
@@ -57,6 +60,12 @@ public class CreationActivity extends BaseActivity implements View.OnClickListen
         switch (view.getId()){
             case R.id.creation_call_off:
                 finish();
+                break;
+            case R.id.creation_video:
+                Toast.makeText(this, "视频正在快马加鞭进行中", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.creation_crosstalk:
+
                 break;
             default:
                 break;

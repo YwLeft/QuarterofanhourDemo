@@ -42,5 +42,12 @@
     <string name="creation_video">视频</string>
     <string name="creation_crosstalk">段子</string>
 
+    <!--发表段子-->
+    <string name="published">发表</string>
+    <string name="published_ta">Ta</string>
+    <string name="published_call_off">取消</string>
+    <string name="published_woods">发表文章</string>
+    <string name="published_hite">请输入内容，禁止内容色情，暴力等违法国家法律的内容，违者将以封号处理！</string>
+
 
 </resources>

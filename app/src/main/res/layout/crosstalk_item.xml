@@ -17,14 +17,13 @@
         <ImageView
             android:id="@+id/recommend_item_tous"
             android:layout_width="@dimen/x80"
-            android:layout_height="@dimen/y80"
-
-           />
+            android:layout_height="@dimen/y80" />
 
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_marginLeft="@dimen/x20"
+
             android:orientation="vertical">
 
             <TextView
@@ -50,12 +49,95 @@
 
         </LinearLayout>
 
-        <ImageView
-            android:id="@+id/recommend_item_dong"
-            android:layout_width="@dimen/x65"
-            android:layout_height="@dimen/y60"
-            android:layout_margin="10dp"
-            android:background="@drawable/icon_open" />
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/x10"
+            android:layout_weight="1">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RadioButton
+                    android:id="@+id/recommend_item_dong1"
+                    android:layout_width="@dimen/x70"
+                    android:layout_height="@dimen/y70"
+                    android:button="@null"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:drawableTop="@drawable/shiled1"
+                    android:text="屏蔽"
+                    android:gravity="center"
+                    android:visibility="gone"
+                    android:textSize="12sp"
+                    android:textColor="@color/colorhui"
+                    />
+                    <!--android:background="@drawable/shiled1"-->
+
+
+                <RadioButton
+                    android:button="@null"
+                    android:id="@+id/recommend_item_dong2"
+                    android:layout_width="@dimen/x70"
+                    android:layout_height="@dimen/y70"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:text="复制链接"
+                    android:gravity="center"
+                    android:visibility="gone"
+                    android:textSize="12sp"
+                    android:textColor="@color/colorhui"
+                    android:drawableTop="@drawable/copylink1"/>
+                    <!--android:background="@drawable/copylink1" />-->
+
+                <RadioButton
+                    android:id="@+id/recommend_item_dong3"
+                    android:layout_width="@dimen/x70"
+                    android:layout_height="@dimen/y70"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:text="举报"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:visibility="gone"
+                    android:textSize="12sp"
+                    android:textColor="@color/colorhui"
+                    android:drawableTop="@drawable/report1"/>
+                    <!--android:background="@drawable/report1" />-->
+
+                <RadioButton
+                    android:id="@+id/recommend_item_dong4"
+                    android:layout_width="@dimen/x70"
+                    android:layout_height="@dimen/y70"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:text=""
+                    android:button="@null"
+                    android:drawableTop="@drawable/icon_packup"
+                   />
+
+                <RadioButton
+                    android:button="@null"
+                    android:id="@+id/recommend_item_dong5"
+                    android:layout_width="@dimen/x70"
+                    android:layout_height="@dimen/y70"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:drawableTop="@drawable/icon_open"
+                    android:text=""
+                  />
+            </RelativeLayout>
+
+
+        </FrameLayout>
+
+
     </LinearLayout>
 
     <TextView
@@ -66,5 +148,9 @@
         android:textColor="@color/colorback"
         android:textSize="14sp" />
 
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/creation_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

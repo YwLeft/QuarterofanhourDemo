@@ -1,12 +1,12 @@
 package com.example.asus.quarterofanhourdemo.view.fragment;
 
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 
 import com.example.asus.quarterofanhourdemo.R;
 import com.example.asus.quarterofanhourdemo.base.BaseDataPresenter;
 import com.example.asus.quarterofanhourdemo.base.BaseFragment;
 import com.example.asus.quarterofanhourdemo.view.adapter.HotAdapter;
+import com.jcodecraeer.xrecyclerview.XRecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,10 +18,10 @@ import butterknife.BindView;
  * 创建人    gaozhijie
  * 类描述    推荐子页面——热门页面
  */
-public class RecommendHotFragment extends BaseFragment {
+public class RecommendHotFragment extends BaseFragment implements XRecyclerView.LoadingListener {
 
     @BindView(R.id.hot_recyclerview)
-    RecyclerView hotRecyclerview;
+    XRecyclerView hotRecyclerview;
     private List<Integer> mlist = new ArrayList<>();
     private List<String> mlist_ry = new ArrayList<>();
 
@@ -56,6 +56,25 @@ public class RecommendHotFragment extends BaseFragment {
         mlist_ry.add("双鱼喝果粒橙");
         hotRecyclerview.setLayoutManager(new LinearLayoutManager(getActivity()));
         HotAdapter adapter = new HotAdapter(mlist_ry, getActivity(), mlist);
+        hotRecyclerview.setLoadingListener(this);
         hotRecyclerview.setAdapter(adapter);
+    }
+
+    @Override
+    public void onRefresh() {
+        mlist_ry.clear();
+        initView();
+        stoprecycler();
+    }
+    private void stoprecycler() {
+        hotRecyclerview.refreshComplete();
+        hotRecyclerview.loadMoreComplete();
+    }
+
+    @Override
+    public void onLoadMore() {
+        mlist_ry.clear();
+        initView();
+        stoprecycler();
     }
 }

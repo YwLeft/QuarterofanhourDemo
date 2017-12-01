@@ -37,7 +37,6 @@ public class AnimationImage extends ImageView {
         paint = new Paint();
 
     }
-
     /**
      * 绘制圆形图片
      *

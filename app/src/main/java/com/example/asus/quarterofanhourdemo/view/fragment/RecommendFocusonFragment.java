@@ -1,12 +1,12 @@
 package com.example.asus.quarterofanhourdemo.view.fragment;
 
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 
 import com.example.asus.quarterofanhourdemo.R;
 import com.example.asus.quarterofanhourdemo.base.BaseDataPresenter;
 import com.example.asus.quarterofanhourdemo.base.BaseFragment;
 import com.example.asus.quarterofanhourdemo.view.adapter.HotAdapter;
+import com.jcodecraeer.xrecyclerview.XRecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,10 +18,10 @@ import butterknife.BindView;
  * 创建人    gaozhijie
  * 类描述      推荐子页面——关注页面
  */
-public class RecommendFocusonFragment extends BaseFragment {
+public class RecommendFocusonFragment extends BaseFragment implements XRecyclerView.LoadingListener {
 
     @BindView(R.id.focuson_recyclerview)
-    RecyclerView focusonRecyclerview;
+    XRecyclerView focusonRecyclerview;
     private List<Integer> mlist = new ArrayList<>();
     private List<String> mlist_ry = new ArrayList<>();
 
@@ -54,8 +54,28 @@ public class RecommendFocusonFragment extends BaseFragment {
         mlist_ry.add("巨蟹喝五粮液");
         mlist_ry.add("处女喝雪碧");
         mlist_ry.add("天秤喝果粒橙");
+
         focusonRecyclerview.setLayoutManager(new LinearLayoutManager(getActivity()));
         HotAdapter adapter = new HotAdapter(mlist_ry, getActivity(), mlist);
+        focusonRecyclerview.setLoadingListener(this);
         focusonRecyclerview.setAdapter(adapter);
+    }
+
+    @Override
+    public void onRefresh() {
+        mlist_ry.clear();
+        initView();
+        stoprecycler();
+    }
+    private void stoprecycler() {
+        focusonRecyclerview.refreshComplete();
+        focusonRecyclerview.loadMoreComplete();
+    }
+
+    @Override
+    public void onLoadMore() {
+        mlist_ry.clear();
+        initView();
+        stoprecycler();
     }
 }

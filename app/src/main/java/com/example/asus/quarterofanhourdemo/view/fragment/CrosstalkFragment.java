@@ -2,7 +2,6 @@ package com.example.asus.quarterofanhourdemo.view.fragment;
 
 import android.content.Context;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
 import com.example.asus.quarterofanhourdemo.R;
@@ -12,6 +11,7 @@ import com.example.asus.quarterofanhourdemo.model.bean.CrosstalkBean;
 import com.example.asus.quarterofanhourdemo.presenter.CrosstalkPresenter;
 import com.example.asus.quarterofanhourdemo.view.adapter.CrosstalkAdapter;
 import com.example.asus.quarterofanhourdemo.view.iview.CrosstalkView;
+import com.jcodecraeer.xrecyclerview.XRecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,10 +23,10 @@ import butterknife.BindView;
  * 创建人    gaozhijie
  * 类描述      段子页面
  */
-public class CrosstalkFragment extends BaseFragment implements CrosstalkView{
+public class CrosstalkFragment extends BaseFragment implements CrosstalkView, XRecyclerView.LoadingListener {
 
     @BindView(R.id.crosstalk_recycler)
-    RecyclerView crosstalkRecycler;
+    XRecyclerView crosstalkRecycler;
     private CrosstalkPresenter presenter;
     private List<CrosstalkBean.DataBean> mlist = new ArrayList<>();
     private int page = 1;
@@ -50,8 +50,9 @@ public class CrosstalkFragment extends BaseFragment implements CrosstalkView{
     }
 
     private void initData() {
+        crosstalkRecycler.setLoadingListener(this);
         crosstalkRecycler.setLayoutManager(new LinearLayoutManager(getActivity()));
-        CrosstalkAdapter adapter = new CrosstalkAdapter(mlist,getActivity());
+        CrosstalkAdapter adapter = new CrosstalkAdapter(mlist, getActivity());
         crosstalkRecycler.setAdapter(adapter);
     }
 
@@ -64,12 +65,12 @@ public class CrosstalkFragment extends BaseFragment implements CrosstalkView{
     public void onGetDataSucceed(CrosstalkBean bean) {
         int code = Integer.parseInt(bean.getCode());
         String msg = bean.getMsg();
-        if (bean != null&&code==0){
+        if (bean != null && code == 0) {
             mlist.addAll(bean.getData());
             initData();
-        }else if (code==2){
+        } else if (code == 2) {
             Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show();
-        }else {
+        } else {
             Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show();
         }
     }
@@ -77,5 +78,26 @@ public class CrosstalkFragment extends BaseFragment implements CrosstalkView{
     @Override
     public void onGetDataFail(String e) {
         Toast.makeText(getActivity(), "网络错误", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onRefresh() {
+        page = 1;
+        mlist.clear();
+        initView();
+        stoprecycler();
+
+    }
+
+    private void stoprecycler() {
+        crosstalkRecycler.refreshComplete();
+        crosstalkRecycler.loadMoreComplete();
+    }
+
+    @Override
+    public void onLoadMore() {
+        page++;
+        initView();
+        stoprecycler();
     }
 }

@@ -76,6 +76,7 @@
                     android:layout_weight="1"
                     android:background="@null"
                     android:hint="@string/hint_password"
+                    android:textColorHint="@color/colorhui"
                     android:textColor="@color/colorhui"/>
             </LinearLayout>
 
@@ -102,7 +103,7 @@
                     android:layout_weight="1"
                     android:background="@null"
                     android:hint="@string/hint_account"
-                    android:textColor="@color/colorhui"
+                    android:textColorHint="@color/colorhui"
                     android:inputType="textPassword"
                     />
             </LinearLayout>

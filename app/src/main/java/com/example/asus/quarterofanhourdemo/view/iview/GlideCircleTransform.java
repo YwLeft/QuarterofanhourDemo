@@ -12,7 +12,7 @@ import com.bumptech.glide.load.resource.bitmap.BitmapTransformation;
 /**
  * 创建时间  2017/11/29 20:37
  * 创建人    gaozhijie
- * 类描述
+ * 类描述       Glide加载圆形图片=
  */
 public class GlideCircleTransform extends BitmapTransformation {
     public GlideCircleTransform(Context context) {
