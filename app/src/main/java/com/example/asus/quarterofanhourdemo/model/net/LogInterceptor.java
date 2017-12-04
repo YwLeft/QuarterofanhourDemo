@@ -18,7 +18,6 @@ public class LogInterceptor implements Interceptor {
 
     public static String TAG = "LogInterceptor";
 
-
     @Override
     public okhttp3.Response intercept(Chain chain) throws IOException {
         Request request = chain.request();
@@ -28,6 +27,7 @@ public class LogInterceptor implements Interceptor {
             url = request.url()
                     .newBuilder()
                     .addQueryParameter("source", "android")
+                    .addQueryParameter("token", MyApp.getUserInfoSp().getString("usertoken",""))
                     .addQueryParameter("appVersion",String.valueOf(VersionUtils.getVersoncode()))
                     .build();
         } catch (Exception e) {

@@ -1,13 +1,18 @@
 package com.example.asus.quarterofanhourdemo.view.acyivity;
 
+import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
+import android.app.AlertDialog;
 
 import com.example.asus.quarterofanhourdemo.R;
 import com.example.asus.quarterofanhourdemo.base.BaseActivity;
 import com.example.asus.quarterofanhourdemo.base.BaseDataPresenter;
+import com.example.asus.quarterofanhourdemo.model.net.MyApp;
 
 import butterknife.BindView;
 
@@ -21,6 +26,7 @@ public class SetUpThesActivity extends BaseActivity implements View.OnClickListe
     RadioButton setTeturn;
     @BindView(R.id.return_login)
     Button returnLogin;
+    private SharedPreferences sp;
 
     @Override
     public BaseDataPresenter initPresenter() {
@@ -51,9 +57,30 @@ public class SetUpThesActivity extends BaseActivity implements View.OnClickListe
                 finish();
                 break;
             case R.id.return_login:
-                Intent intent = new Intent(this,LoginOneActivity.class);
-                startActivity(intent);
-                finish();
+                //读取本地保存的状态及文件
+                sp = MyApp.getUserInfoSp();
+                if (sp.getBoolean("loginboolen", true)) {
+                    //弹出一个对话框
+                    new AlertDialog.Builder(SetUpThesActivity.this)
+                            .setTitle("确认您的选择")
+                            .setMessage("确定退出登陆吗？亲")
+                            .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                                @SuppressLint("CommitPrefEdits")
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    //清空当前保存的状态和文件
+                                    SharedPreferences.Editor edit = sp.edit();
+                                    edit.clear();
+                                    edit.commit();
+                                    //退出后自动跳转到登陆页面
+                                    Intent intent = new Intent(SetUpThesActivity.this, LoginOneActivity.class);
+                                    startActivity(intent);
+                                }
+                            })
+                            .setNegativeButton("取消", null)
+                            .create()
+                            .show();
+                }
                 break;
             default:
                 break;

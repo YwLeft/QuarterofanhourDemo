@@ -2,6 +2,7 @@ package com.example.asus.quarterofanhourdemo.model.net;
 
 import com.example.asus.quarterofanhourdemo.base.Basebean;
 import com.example.asus.quarterofanhourdemo.model.bean.CrosstalkBean;
+import com.example.asus.quarterofanhourdemo.model.bean.LoginBean;
 
 import java.util.List;
 
@@ -17,16 +18,20 @@ import retrofit2.http.POST;
  */
 public interface ApiService {
 
+    //获取段子
     @FormUrlEncoded
     @POST("quarter/getJokes")
     Observable<Basebean<List<CrosstalkBean>>> getJokes(@Field("page") String  page);
 
-//    //注册
-//    @POST("quarter/register")
-//    @FormUrlEncoded
-//    Observable<HotBean>
-//    getRegest(@Field("regType") String regType,
-//              @Field("mobile") String  mobile,
-//              @Field("password") String password
-//    );
+    //登陆
+    @POST("user/login")
+    @FormUrlEncoded
+    Observable<Basebean<LoginBean>> getLogin(@Field("mobile") String mobile,
+                                             @Field("password") String  password);
+
+    //发布段子
+    @POST("quarter/publishJoke")
+    @FormUrlEncoded
+    Observable<Basebean> getPublished(@Field("uid") String uid,
+                                             @Field("content") String  content);
 }

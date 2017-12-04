@@ -32,6 +32,7 @@
         <activity android:name=".view.acyivity.PublishedActivity"/>
         <activity android:name=".view.acyivity.MyFocusoActivity"/>
         <activity android:name=".view.acyivity.MyAlertsActivity"/>
+        <activity android:name=".view.acyivity.SuccessActivity"/>
     </application>
 
 </manifest>

@@ -1,6 +1,7 @@
 package com.example.asus.quarterofanhourdemo.view.acyivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -11,13 +12,15 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.asus.quarterofanhourdemo.R;
 import com.example.asus.quarterofanhourdemo.base.BaseActivity;
 import com.example.asus.quarterofanhourdemo.base.BaseDataPresenter;
+import com.example.asus.quarterofanhourdemo.model.net.MyApp;
 import com.example.asus.quarterofanhourdemo.view.fragment.CrosstalkFragment;
 import com.example.asus.quarterofanhourdemo.view.fragment.RecommendFragment;
 import com.example.asus.quarterofanhourdemo.view.fragment.VideoFragment;
-import com.example.asus.quarterofanhourdemo.view.iview.AnimationImage;
+import com.example.asus.quarterofanhourdemo.view.iview.GlideCircleTransform;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 
 import butterknife.BindView;
@@ -41,11 +44,14 @@ public class TheHomePageActivity extends BaseActivity implements View.OnClickLis
     @BindView(R.id.radio_group)
     RadioGroup radioGroup;
     @BindView(R.id.thehome_image)
-    AnimationImage thehomeImage;
+    ImageView thehomeImage;
     private Fragment mf1, mf2, mf3;
     private FragmentManager fm;
     private SlidingMenu leftMenu;
-    int age;
+    private int age;
+    private SharedPreferences sp;
+    private ImageView animationImage;
+    private TextView name;
 
     @Override
     public BaseDataPresenter initPresenter() {
@@ -70,6 +76,30 @@ public class TheHomePageActivity extends BaseActivity implements View.OnClickLis
         mf1 = new RecommendFragment();
         mf2 = new CrosstalkFragment();
         mf3 = new VideoFragment();
+
+        //读取本地保存的状态及文件
+        sp = MyApp.getUserInfoSp();
+        if (sp.getBoolean("loginboolen",true)){
+            //设置侧拉图片
+            Glide.with(this)
+                    .load(sp.getString("userIcon",""))
+                    .centerCrop()
+                    .error(R.mipmap.ic_launcher_round)
+                    //.placeholder(R.mipmap.ic_launcher_round)
+                    .transform(new GlideCircleTransform(this))
+                    .into(animationImage);
+
+            //设置主页图片
+            Glide.with(this)
+                    .load(sp.getString("userIcon",""))
+                    .centerCrop()
+                    .error(R.mipmap.ic_launcher_round)
+                    //.placeholder(R.mipmap.ic_launcher_round)
+                    .transform(new GlideCircleTransform(this))
+                    .into(thehomeImage);
+            //设置昵称
+            name.setText(sp.getString("userNickname",""));
+        }
 
         fm = getSupportFragmentManager();
 
@@ -102,6 +132,10 @@ public class TheHomePageActivity extends BaseActivity implements View.OnClickLis
         LinearLayout linearLayout = left.findViewById(R.id.side_left);
         LinearLayout linearLayoutfocus = left.findViewById(R.id.side_left_focus);
         LinearLayout linearLayoutalerts = left.findViewById(R.id.side_left_alerts);
+        animationImage = left.findViewById(R.id.side_left_image);
+        name = left.findViewById(R.id.side_left_name);
+
+
         leftMenu.setMenu(left);
         leftMenu.setMode(SlidingMenu.LEFT);
         leftMenu.setBehindOffsetRes(R.dimen.slidingmenu_offets);

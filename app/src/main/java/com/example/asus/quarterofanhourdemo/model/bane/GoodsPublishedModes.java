@@ -2,7 +2,6 @@ package com.example.asus.quarterofanhourdemo.model.bane;
 
 import com.example.asus.quarterofanhourdemo.base.BaseObserver;
 import com.example.asus.quarterofanhourdemo.base.Basebean;
-import com.example.asus.quarterofanhourdemo.model.bean.LoginBean;
 import com.example.asus.quarterofanhourdemo.model.net.ApiService;
 import com.example.asus.quarterofanhourdemo.model.net.MRetrofit;
 
@@ -12,36 +11,36 @@ import io.reactivex.schedulers.Schedulers;
 /**
  * 创建时间  2017/11/29 9:56
  * 创建人    gaozhijie
- * 类描述    登陆的mode层
+ * 类描述    发布段子的mode层
  */
-public class GoodsLoginModes {
+public class GoodsPublishedModes {
     private MRetrofit mRetrofit;
 
-    public GoodsLoginModes() {
+    public GoodsPublishedModes() {
         mRetrofit = MRetrofit.getinstance();
     }
 
-    public void getLoginData(final DataLigin dataLigin, String mobile,String password){
-        mRetrofit.create(ApiService.class).getLogin(mobile,password)
+    public void getPublishedData(final GoodsPublishedModes.DataPublished dataPublished, String uid, String content){
+        mRetrofit.create(ApiService.class).getPublished(uid,content)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new BaseObserver<LoginBean>() {
+                .subscribe(new BaseObserver() {
                     @Override
-                    protected void onSuccees(Basebean<LoginBean> t) throws Exception {
-                        dataLigin.setbutteck(t);
+                    protected void onSuccees(Basebean t) throws Exception {
+                        dataPublished.setbutteck(t);
                     }
 
                     @Override
                     protected void onFailure(Throwable e) throws Exception {
-                        dataLigin.setfile(e.toString());
+                        dataPublished.setfile(e.toString());
                     }
                 });
     }
     /**
      * 定义两个接口，一个成功，一个失败
      */
-    public interface DataLigin{
-        void setbutteck(Basebean<LoginBean> bean);
+    public interface DataPublished{
+        void setbutteck(Basebean bean);
         void setfile(String s);
     }
 }

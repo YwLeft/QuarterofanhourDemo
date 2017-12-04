@@ -45,14 +45,14 @@
         android:orientation="vertical">
 
         <ImageView
-            android:layout_width="@dimen/x200"
-            android:layout_height="@dimen/y200"
-            android:layout_marginTop="@dimen/y100"
+            android:layout_width="@dimen/x180"
+            android:layout_height="@dimen/y180"
+            android:layout_marginTop="@dimen/y150"
             android:background="@drawable/logo" />
 
         <LinearLayout
             android:layout_width="@dimen/x550"
-            android:layout_height="@dimen/y200"
+            android:layout_height="@dimen/y180"
             android:layout_marginTop="@dimen/x60"
             android:background="@drawable/dotlogin"
             android:orientation="vertical">
@@ -96,13 +96,13 @@
 
         <Button
             android:id="@+id/referrer_login"
-            android:layout_width="@dimen/x600"
+            android:layout_width="@dimen/x550"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/x60"
             android:background="@drawable/dotlogintwo"
             android:text="@string/referrer"
             android:textColor="@color/colorwhile"
-            android:textSize="15sp" />
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/referrer_Visitors_login"
@@ -111,7 +111,7 @@
             android:layout_marginTop="@dimen/x40"
             android:text="@string/Visitors_login"
             android:textColor="@color/colorhui"
-            android:textSize="15sp" />
+            android:textSize="18sp" />
     </LinearLayout>
 
 

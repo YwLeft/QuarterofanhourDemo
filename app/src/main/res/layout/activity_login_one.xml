@@ -25,13 +25,13 @@
         android:orientation="vertical">
 
         <ImageView
-            android:layout_width="@dimen/x200"
-            android:layout_height="@dimen/y200"
-            android:layout_marginTop="@dimen/y140"
+            android:layout_width="@dimen/x180"
+            android:layout_height="@dimen/y180"
+            android:layout_marginTop="@dimen/y100"
             android:background="@drawable/logo" />
 
         <TextView
-            android:layout_marginTop="@dimen/y400"
+            android:layout_marginTop="@dimen/y600"
             android:layout_width="@dimen/x400"
             android:layout_height="@dimen/y80"
             android:layout_marginLeft="@dimen/x10"

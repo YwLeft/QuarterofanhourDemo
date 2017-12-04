@@ -32,6 +32,12 @@ public abstract class BaseObserver<T> implements Observer<Basebean<T>> {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+        }else {
+            try {
+                onSuccees(basebean);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 

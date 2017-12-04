@@ -16,13 +16,13 @@
         android:gravity="center"
         android:orientation="horizontal">
 
-        <com.example.asus.quarterofanhourdemo.view.iview.AnimationImage
+        <ImageView
             android:id="@+id/thehome_image"
             android:layout_centerInParent="true"
             android:layout_width="@dimen/x80"
             android:layout_height="@dimen/y80"
             android:layout_margin="10dp"
-            android:src="@drawable/raw_1499936862" />
+            android:background="@mipmap/ic_launcher_round" />
 
         <TextView
             android:id="@+id/recommend_texttitle"

@@ -21,14 +21,14 @@
                 android:layout_marginTop="@dimen/y190"
                 android:orientation="horizontal">
 
-                <com.example.asus.quarterofanhourdemo.view.iview.AnimationImage
+                <ImageView
                     android:id="@+id/side_left_image"
                     android:layout_width="@dimen/x80"
                     android:layout_height="@dimen/y80"
                     android:layout_centerInParent="true"
                     android:layout_marginLeft="@dimen/x30"
                     android:layout_marginRight="@dimen/x30"
-                    android:src="@drawable/raw_1499936862" />
+                    android:background="@mipmap/ic_launcher_round" />
 
                 <TextView
                     android:id="@+id/side_left_name"

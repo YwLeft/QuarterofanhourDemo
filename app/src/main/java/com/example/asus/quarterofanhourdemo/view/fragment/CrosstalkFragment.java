@@ -14,7 +14,6 @@ import com.example.asus.quarterofanhourdemo.view.adapter.CrosstalkAdapter;
 import com.example.asus.quarterofanhourdemo.view.iview.CrosstalkView;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -29,8 +28,6 @@ public class CrosstalkFragment extends BaseFragment implements CrosstalkView, XR
     @BindView(R.id.crosstalk_recycler)
     XRecyclerView crosstalkRecycler;
     private CrosstalkPresenter presenter;
-    private List<Basebean<List<CrosstalkBean>>> mlist = new ArrayList<>();
-    private Basebean<List<CrosstalkBean>> basebeans = new Basebean<>();
     private int page = 1;
     private List<CrosstalkBean> data;
 
@@ -72,10 +69,6 @@ public class CrosstalkFragment extends BaseFragment implements CrosstalkView, XR
         String msg = bean.getMsg();
         if (bean != null && code == 0) {
             data = bean.getData();
-//            for (Basebean<List<CrosstalkBean>> base : mlist){
-//                basebeans.setData(base.getData());
-//            }
-//            CrosstalkBean bean1 = basebeans.getData().get(0);
             initData();
         } else if (code == 2) {
             Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show();
