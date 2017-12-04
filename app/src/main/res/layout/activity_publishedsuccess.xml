@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorhuiss"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x30"
+        android:background="@color/colorbule" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorbule"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/success_call_off"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:button="@null"
+            android:drawableLeft="@drawable/iv_back"
+            android:text="@string/success_return"
+            android:textColor="@color/colorwhile"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/y200"
+        android:background="@drawable/raw_1500021052" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/y40"
+        android:text="@string/success_woods"
+        android:textColor="@color/colorback"
+        android:textSize="15sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/y50"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:button="@null"
+            android:drawableTop="@drawable/qq"
+            android:gravity="center"
+            android:text="@string/success_QQ"
+            android:textColor="@color/colorback"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:button="@null"
+            android:drawableTop="@drawable/raw_1500022686"
+            android:gravity="center"
+            android:text="@string/success_QQs"
+            android:textColor="@color/colorback"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:button="@null"
+            android:drawableTop="@drawable/raw_1500022317"
+            android:gravity="center"
+            android:text="@string/success_friends"
+            android:textColor="@color/colorback"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:button="@null"
+            android:drawableTop="@drawable/weixinss"
+            android:gravity="center"
+            android:text="@string/success_WZ"
+            android:textColor="@color/colorback"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/success_return"
+        android:layout_width="@dimen/x450"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/y40"
+        android:background="@drawable/dotpubll"
+        android:gravity="center"
+        android:text="@string/success_Go"
+        android:textColor="@color/colorwhile"
+        android:textSize="15sp" />
+</LinearLayout>

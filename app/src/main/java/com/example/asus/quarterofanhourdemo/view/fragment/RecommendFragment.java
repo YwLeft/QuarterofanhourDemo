@@ -36,6 +36,7 @@ public class RecommendFragment extends BaseFragment {
     View ml;
     private List<Fragment> mlist = new ArrayList<>();
 
+
     @Override
     public BaseDataPresenter initPresenter() {
         return null;

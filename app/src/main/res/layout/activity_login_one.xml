@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/login1"
     android:orientation="vertical">
+
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/y30"
@@ -27,64 +28,45 @@
             android:layout_width="@dimen/x200"
             android:layout_height="@dimen/y200"
             android:layout_marginTop="@dimen/y140"
-            android:background="@drawable/logo"
-             />
+            android:background="@drawable/logo" />
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="1"/>
-        <LinearLayout
-            android:gravity="center"
+            android:layout_marginTop="@dimen/y400"
+            android:layout_width="@dimen/x400"
+            android:layout_height="@dimen/y80"
+            android:layout_marginLeft="@dimen/x10"
             android:background="@drawable/yuanjiaow"
+            android:drawableLeft="@drawable/wx"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/x110"
+            android:text="微信登录"
+            android:textColor="@color/colorwhile"
+            android:textSize="15sp" />
+
+
+        <TextView
             android:layout_width="@dimen/x400"
-            android:layout_height="@dimen/y80">
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/wx"
-                />
-            <TextView
-                android:layout_marginLeft="@dimen/x10"
-                android:textSize="15sp"
-                android:textColor="@color/colorwhile"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="微信登录"
-                />
-        </LinearLayout>
-        <LinearLayout
+            android:layout_height="@dimen/y80"
+            android:layout_marginLeft="@dimen/x10"
             android:layout_marginTop="@dimen/y20"
-            android:gravity="center"
             android:background="@drawable/yuanjiao"
-            android:layout_width="@dimen/x400"
-            android:layout_height="@dimen/y80">
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/qq"
-                />
-            <TextView
-                android:layout_marginLeft="@dimen/x10"
-                android:textSize="15sp"
-                android:textColor="@color/colorwhile"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="QQ登录"
-                />
-        </LinearLayout>
+            android:drawableLeft="@drawable/qqss"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/x110"
+            android:text="QQ登录"
+            android:textColor="@color/colorwhile"
+            android:textSize="15sp" />
 
 
         <TextView
             android:id="@+id/login_one_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/y40"
             android:gravity="center"
             android:text="其他登陆方式"
-            android:textSize="15sp"
             android:textColor="@color/colorwhile"
-            android:layout_marginBottom="@dimen/y100"
-            android:layout_marginTop="@dimen/x60"
-            />
+            android:textSize="15sp" />
 
     </LinearLayout>
 

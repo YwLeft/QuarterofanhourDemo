@@ -1,12 +1,15 @@
 package com.example.asus.quarterofanhourdemo.model.bane;
 
+import com.example.asus.quarterofanhourdemo.base.BaseObserver;
+import com.example.asus.quarterofanhourdemo.base.Basebean;
 import com.example.asus.quarterofanhourdemo.model.bean.CrosstalkBean;
-import com.example.asus.quarterofanhourdemo.model.net.MyApp;
-import com.example.asus.quarterofanhourdemo.model.net.NetDataCallBack;
-import com.example.asus.quarterofanhourdemo.model.net.OkHttpClick;
-import com.example.asus.quarterofanhourdemo.urls.URL;
+import com.example.asus.quarterofanhourdemo.model.net.ApiService;
+import com.example.asus.quarterofanhourdemo.model.net.MRetrofit;
 
-import okhttp3.FormBody;
+import java.util.List;
+
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * 创建时间  2017/11/27 14:56
@@ -14,41 +17,38 @@ import okhttp3.FormBody;
  * 类描述     段子的mode层
  */
 public class GoodsCrosstalkModes {
-
-    public OkHttpClick okHttpClick;
+    private MRetrofit mRetrofit;
 
     public GoodsCrosstalkModes() {
-        this.okHttpClick = MyApp.getOkHttpClick();
+        mRetrofit = MRetrofit.getinstance();
     }
 
 
-    public void getDataCrosstalk(final Databack databack,String page){
-        FormBody body = new FormBody.Builder()
-                .add("source","android")
-                .add("appVersion","101")
-                .add("page",page)
-                .build();
+    public void getDataCrosstalk(final Databack databack, String page){
 
-        okHttpClick.getLoadDataPost(URL.CROSSTALK_URl, new NetDataCallBack() {
-            @Override
-            public void success(Object o) {
-                CrosstalkBean bean= (CrosstalkBean) o;
-                databack.setbutteck(bean);
-            }
+        mRetrofit.create(ApiService.class).getJokes(page)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new BaseObserver<List<CrosstalkBean>>() {
 
-            @Override
-            public void faild(int positon, String str) {
-                databack.setfile(str.toString());
-            }
-        },CrosstalkBean.class,body);
 
+                    @Override
+                    protected void onSuccees(Basebean<List<CrosstalkBean>> t) throws Exception {
+                        databack.setbutteck(t);
+                    }
+
+                    @Override
+                    protected void onFailure(Throwable e) throws Exception {
+                        databack.setfile(e.toString());
+                    }
+                });
     }
 
     /**
      * 定义两个接口，一个成功，一个失败
      */
     public interface Databack{
-        void setbutteck(CrosstalkBean bean);
+        void setbutteck(Basebean<List<CrosstalkBean>> bean);
         void setfile(String s);
     }
 }

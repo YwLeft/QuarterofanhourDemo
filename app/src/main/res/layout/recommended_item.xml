@@ -24,9 +24,8 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_marginLeft="@dimen/x20"
-            >
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/recommend_title"
@@ -65,34 +64,33 @@
                     android:id="@+id/recommend_item_dong1"
                     android:layout_width="@dimen/x70"
                     android:layout_height="@dimen/y70"
-                    android:button="@null"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentTop="true"
+                    android:button="@null"
                     android:drawableTop="@drawable/shiled1"
-                    android:text="屏蔽"
                     android:gravity="center"
-                    android:visibility="gone"
-                    android:textSize="12sp"
+                    android:text="屏蔽"
                     android:textColor="@color/colorhui"
-                    />
+                    android:textSize="12sp"
+                    android:visibility="gone" />
                 <!--android:background="@drawable/shiled1"-->
 
 
                 <RadioButton
-                    android:button="@null"
                     android:id="@+id/recommend_item_dong2"
                     android:layout_width="@dimen/x70"
                     android:layout_height="@dimen/y70"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentTop="true"
-                    android:text="复制链接"
+                    android:button="@null"
+                    android:drawableTop="@drawable/copylink1"
                     android:gravity="center"
-                    android:visibility="gone"
-                    android:textSize="12sp"
+                    android:text="复制链接"
                     android:textColor="@color/colorhui"
-                    android:drawableTop="@drawable/copylink1"/>
+                    android:textSize="12sp"
+                    android:visibility="gone" />
                 <!--android:background="@drawable/copylink1" />-->
 
                 <RadioButton
@@ -102,13 +100,13 @@
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentTop="true"
-                    android:text="举报"
                     android:button="@null"
+                    android:drawableTop="@drawable/report1"
                     android:gravity="center"
-                    android:visibility="gone"
-                    android:textSize="12sp"
+                    android:text="举报"
                     android:textColor="@color/colorhui"
-                    android:drawableTop="@drawable/report1"/>
+                    android:textSize="12sp"
+                    android:visibility="gone" />
                 <!--android:background="@drawable/report1" />-->
 
                 <RadioButton
@@ -118,22 +116,20 @@
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentTop="true"
-                    android:text=""
                     android:button="@null"
                     android:drawableTop="@drawable/icon_packup"
-                    />
+                    android:text="" />
 
                 <RadioButton
-                    android:button="@null"
                     android:id="@+id/recommend_item_dong5"
                     android:layout_width="@dimen/x70"
                     android:layout_height="@dimen/y70"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentTop="true"
+                    android:button="@null"
                     android:drawableTop="@drawable/icon_open"
-                    android:text=""
-                    />
+                    android:text="" />
             </RelativeLayout>
 
 
@@ -150,7 +146,7 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/y550"
+        android:layout_height="@dimen/y450"
         android:layout_marginTop="10dp">
 
         <ImageView
@@ -180,13 +176,13 @@
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
+                    android:layout_marginTop="@dimen/y20"
                     android:layout_weight="1"
                     android:button="@null"
                     android:drawableTop="@drawable/baixin"
                     android:gravity="center"
                     android:text="1563"
-                    android:layout_marginTop="@dimen/y20"
-                    android:textColor="@color/colorwhile"/>
+                    android:textColor="@color/colorwhile" />
 
                 <RadioButton
                     android:layout_width="wrap_content"
@@ -196,7 +192,7 @@
                     android:drawableTop="@drawable/pinglun"
                     android:gravity="center"
                     android:text="665"
-                    android:textColor="@color/colorwhile"/>
+                    android:textColor="@color/colorwhile" />
 
                 <RadioButton
                     android:layout_width="wrap_content"
@@ -206,7 +202,7 @@
                     android:drawableTop="@drawable/baixing"
                     android:gravity="center"
                     android:text="503"
-                    android:textColor="@color/colorwhile"/>
+                    android:textColor="@color/colorwhile" />
 
                 <RadioButton
                     android:layout_width="wrap_content"
@@ -216,7 +212,7 @@
                     android:drawableTop="@drawable/fenxiang"
                     android:gravity="center"
                     android:text="153"
-                    android:textColor="@color/colorwhile"/>
+                    android:textColor="@color/colorwhile" />
             </LinearLayout>
 
         </LinearLayout>
@@ -224,50 +220,25 @@
 
     </FrameLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
+
+    <TextView
+        android:id="@+id/recommend_item_commentsone"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/recommend_item_commentsone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="汽猪上高速  :"
-            android:textColor="@color/colorbule"
-            android:textSize="13sp" />
-
-        <TextView
-            android:id="@+id/recommend_item_commentsones"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="  不错"
-            android:textSize="13sp" />
+        android:text="汽猪上高速  :不错"
+        android:textColor="@color/colorhui"
+        android:textSize="13sp"
+        android:layout_marginTop="@dimen/y20"/>
 
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/recommend_item_commentstwo"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal">
+        android:text="汽猪上高速  :不错"
+        android:textColor="@color/colorhui"
+        android:textSize="13sp"
+        android:layout_marginTop="@dimen/y20"/>
 
-        <TextView
-            android:id="@+id/recommend_item_commentstwo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="汽猪上高速  :"
-            android:textColor="@color/colorbule"
-            android:textSize="13sp" />
 
-        <TextView
-            android:id="@+id/recommend_item_commentstwos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="  不错"
-            android:textSize="13sp" />
-
-    </LinearLayout>
 </LinearLayout>

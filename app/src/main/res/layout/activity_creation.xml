@@ -40,76 +40,40 @@
             android:layout_weight="1" />
     </LinearLayout>
 
-    <FrameLayout
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/raw_1500866926">
+        android:background="@drawable/raw_1500866926"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/creation_video"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/y200"
+            android:background="@drawable/dot_creation"
+            android:gravity="center_horizontal"
+            android:drawableTop="@drawable/video_img"
+            android:text="@string/creation_video"
+            android:textColor="@color/colorback"
+            android:textSize="20sp"
+            android:padding="@dimen/y30"/>
 
+        <TextView
+            android:id="@+id/creation_crosstalk"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="@dimen/y100"
+            android:layout_height="wrap_content"
+            android:background="@drawable/dot_creation"
+            android:drawableTop="@drawable/writer_img"
+            android:text="@string/creation_crosstalk"
+            android:textColor="@color/colorback"
+            android:textSize="20sp"
+            android:padding="@dimen/y30"
+            android:gravity="center_horizontal"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="vertical">
+    </LinearLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight="1.2" />
-
-            <LinearLayout
-                android:id="@+id/creation_video"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/dot_creation"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:button="@null"
-                    android:drawableTop="@drawable/video_img"
-                    android:gravity="center"
-                    android:text="@string/creation_video"
-                    android:textColor="@color/colorback"
-                    android:textSize="20sp" />
-
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight="1.5" />
-
-            <LinearLayout
-                android:id="@+id/creation_crosstalk"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/dot_creation"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:button="@null"
-                    android:drawableTop="@drawable/writer_img"
-                    android:gravity="center"
-                    android:text="@string/creation_crosstalk"
-                    android:textColor="@color/colorback"
-                    android:textSize="20sp" />
-
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight="4" />
-
-        </LinearLayout>
-
-
-    </FrameLayout>
 
 </LinearLayout>

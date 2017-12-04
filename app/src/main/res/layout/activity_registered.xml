@@ -4,17 +4,15 @@
     android:layout_height="match_parent"
     android:background="@drawable/mi"
     android:orientation="vertical">
+
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/y30"
-        android:background="@drawable/mis"
-        />
+        android:background="@drawable/mis" />
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/referrer_image"
@@ -23,20 +21,21 @@
             android:layout_margin="10dp"
             android:background="@drawable/raw_1500019926" />
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
 
         <TextView
             android:id="@+id/referrer_registered"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
             android:layout_marginRight="@dimen/x40"
+            android:gravity="center"
+            android:paddingTop="@dimen/y10"
             android:text="@string/referrer_account"
             android:textColor="@color/colorhui"
             android:textSize="20sp" />
-    </LinearLayout>
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -49,36 +48,28 @@
             android:layout_width="@dimen/x200"
             android:layout_height="@dimen/y200"
             android:layout_marginTop="@dimen/y100"
-            android:background="@drawable/logo"
-            />
+            android:background="@drawable/logo" />
 
         <LinearLayout
-            android:layout_marginTop="@dimen/x60"
-            android:layout_width="@dimen/x660"
+            android:layout_width="@dimen/x550"
             android:layout_height="@dimen/y200"
+            android:layout_marginTop="@dimen/x60"
             android:background="@drawable/dotlogin"
-            android:orientation="vertical"
-            >
+            android:orientation="vertical">
 
-            <LinearLayout
+
+            <EditText
+                android:id="@+id/referrer_account"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_marginLeft="@dimen/x40"
                 android:layout_marginRight="@dimen/x40"
                 android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="horizontal">
+                android:background="@null"
+                android:hint="@string/hint_password"
+                android:textColor="@color/colorhui"
+                android:textColorHint="@color/colorhui" />
 
-                <EditText
-                    android:id="@+id/referrer_account"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@null"
-                    android:hint="@string/hint_password"
-                    android:textColorHint="@color/colorhui"
-                    android:textColor="@color/colorhui"/>
-            </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
@@ -87,26 +78,19 @@
                 android:layout_marginRight="@dimen/x40"
                 android:background="@color/colorhui" />
 
-            <LinearLayout
+
+            <EditText
+                android:id="@+id/referrer_password"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
+                android:layout_weight="1"
                 android:layout_marginLeft="@dimen/x40"
                 android:layout_marginRight="@dimen/x40"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="horizontal">
+                android:background="@null"
+                android:hint="@string/hint_account"
+                android:inputType="textPassword"
+                android:textColorHint="@color/colorhui" />
 
-                <EditText
-                    android:id="@+id/referrer_password"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@null"
-                    android:hint="@string/hint_account"
-                    android:textColorHint="@color/colorhui"
-                    android:inputType="textPassword"
-                    />
-            </LinearLayout>
 
         </LinearLayout>
 
@@ -124,10 +108,10 @@
             android:id="@+id/referrer_Visitors_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/x40"
             android:text="@string/Visitors_login"
             android:textColor="@color/colorhui"
-            android:textSize="15sp"
-            android:layout_marginTop="@dimen/x40"/>
+            android:textSize="15sp" />
     </LinearLayout>
 
 

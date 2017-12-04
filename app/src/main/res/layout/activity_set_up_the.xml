@@ -21,27 +21,23 @@
             android:id="@+id/set_teturn"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/y80"
-            android:layout_marginBottom="10dp"
             android:button="@null"
-            android:drawableLeft="@drawable/raw_1500019926"
+            android:drawableLeft="@drawable/iv_back"
             android:text="@string/set_return"
-            android:textColor="@color/colorwhile"
-            android:textSize="18sp" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="10dp"
-            android:layout_weight="4"
-            android:gravity="center"
-            android:text="@string/Set_up_thes"
             android:textColor="@color/colorwhile"
             android:textSize="20sp" />
 
         <TextView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/Set_up_thes"
+            android:textColor="@color/colorwhile"
+            android:textSize="20sp"
+            android:paddingRight="@dimen/x130"
+           />
+
     </LinearLayout>
 
     <LinearLayout
@@ -78,7 +74,7 @@
             android:layout_marginBottom="10dp"
             android:layout_marginRight="@dimen/y20"
             android:layout_marginTop="@dimen/y20"
-            android:background="@drawable/returns" />
+            android:background="@drawable/youreturns" />
     </LinearLayout>
 
     <View
@@ -112,7 +108,7 @@
             android:layout_marginBottom="10dp"
             android:layout_marginRight="@dimen/y20"
             android:layout_marginTop="@dimen/y20"
-            android:background="@drawable/returns" />
+            android:background="@drawable/youreturns" />
     </LinearLayout>
 
     <LinearLayout
@@ -142,7 +138,7 @@
             android:layout_marginBottom="10dp"
             android:layout_marginRight="@dimen/y20"
             android:layout_marginTop="@dimen/y20"
-            android:background="@drawable/returns" />
+            android:background="@drawable/youreturns" />
     </LinearLayout>
 
     <View
@@ -184,7 +180,7 @@
             android:layout_marginBottom="10dp"
             android:layout_marginRight="@dimen/y20"
             android:layout_marginTop="@dimen/y20"
-            android:background="@drawable/returns" />
+            android:background="@drawable/youreturns" />
     </LinearLayout>
 
     <Button

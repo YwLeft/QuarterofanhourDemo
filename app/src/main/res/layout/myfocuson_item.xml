@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <com.example.asus.quarterofanhourdemo.view.iview.AnimationImage
+        android:id="@+id/my_focuso_item_tou"
+        android:layout_width="@dimen/x80"
+        android:layout_height="@dimen/y80"
+        android:layout_margin="5dp"
+        android:src="@drawable/raw_1500033586" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="2"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/x30"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/my_focuso_title"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginBottom="3dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="天蝎喝牛奶"
+            android:textColor="@color/colorback"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/my_focuso_wood"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="你来咬我啊"
+            android:textColor="@color/colorhui"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+    <RadioButton
+        android:id="@+id/my_focuso_time"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginRight="@dimen/x20"
+        android:layout_weight="2"
+        android:button="@null"
+        android:drawableRight="@drawable/returns"
+        android:gravity="center"
+        android:text="2017-08-14 11:52"
+        android:textColor="@color/colorhui"
+        android:textSize="15sp" />
+</LinearLayout>
+

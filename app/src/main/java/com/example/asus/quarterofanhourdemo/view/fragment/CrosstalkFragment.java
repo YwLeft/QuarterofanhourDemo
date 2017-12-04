@@ -7,6 +7,7 @@ import android.widget.Toast;
 import com.example.asus.quarterofanhourdemo.R;
 import com.example.asus.quarterofanhourdemo.base.BaseDataPresenter;
 import com.example.asus.quarterofanhourdemo.base.BaseFragment;
+import com.example.asus.quarterofanhourdemo.base.Basebean;
 import com.example.asus.quarterofanhourdemo.model.bean.CrosstalkBean;
 import com.example.asus.quarterofanhourdemo.presenter.CrosstalkPresenter;
 import com.example.asus.quarterofanhourdemo.view.adapter.CrosstalkAdapter;
@@ -28,12 +29,16 @@ public class CrosstalkFragment extends BaseFragment implements CrosstalkView, XR
     @BindView(R.id.crosstalk_recycler)
     XRecyclerView crosstalkRecycler;
     private CrosstalkPresenter presenter;
-    private List<CrosstalkBean.DataBean> mlist = new ArrayList<>();
+    private List<Basebean<List<CrosstalkBean>>> mlist = new ArrayList<>();
+    private Basebean<List<CrosstalkBean>> basebeans = new Basebean<>();
     private int page = 1;
+    private List<CrosstalkBean> data;
+
 
     @Override
     public BaseDataPresenter initPresenter() {
-        return null;
+        presenter = new CrosstalkPresenter(this);
+        return presenter;
     }
 
     @Override
@@ -44,7 +49,6 @@ public class CrosstalkFragment extends BaseFragment implements CrosstalkView, XR
 
     @Override
     public void initView() {
-        presenter = new CrosstalkPresenter(this);
         String pages = String.valueOf(page);
         presenter.getData(pages);
     }
@@ -52,7 +56,7 @@ public class CrosstalkFragment extends BaseFragment implements CrosstalkView, XR
     private void initData() {
         crosstalkRecycler.setLoadingListener(this);
         crosstalkRecycler.setLayoutManager(new LinearLayoutManager(getActivity()));
-        CrosstalkAdapter adapter = new CrosstalkAdapter(mlist, getActivity());
+        CrosstalkAdapter adapter = new CrosstalkAdapter(data, getActivity());
         crosstalkRecycler.setAdapter(adapter);
     }
 
@@ -61,12 +65,17 @@ public class CrosstalkFragment extends BaseFragment implements CrosstalkView, XR
         return getActivity();
     }
 
+
     @Override
-    public void onGetDataSucceed(CrosstalkBean bean) {
+    public void onGetDataSucceed(Basebean<List<CrosstalkBean>> bean) {
         int code = Integer.parseInt(bean.getCode());
         String msg = bean.getMsg();
         if (bean != null && code == 0) {
-            mlist.addAll(bean.getData());
+            data = bean.getData();
+//            for (Basebean<List<CrosstalkBean>> base : mlist){
+//                basebeans.setData(base.getData());
+//            }
+//            CrosstalkBean bean1 = basebeans.getData().get(0);
             initData();
         } else if (code == 2) {
             Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show();
@@ -77,13 +86,14 @@ public class CrosstalkFragment extends BaseFragment implements CrosstalkView, XR
 
     @Override
     public void onGetDataFail(String e) {
-        Toast.makeText(getActivity(), "网络错误", Toast.LENGTH_SHORT).show();
+        System.out.println("e = " + e);
+        Toast.makeText(getActivity(), "网络错误"+e.toString(), Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onRefresh() {
         page = 1;
-        mlist.clear();
+        data.clear();
         initView();
         stoprecycler();
 

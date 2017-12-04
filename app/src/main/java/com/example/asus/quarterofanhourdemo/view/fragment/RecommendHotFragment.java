@@ -25,6 +25,7 @@ public class RecommendHotFragment extends BaseFragment implements XRecyclerView.
     private List<Integer> mlist = new ArrayList<>();
     private List<String> mlist_ry = new ArrayList<>();
 
+
     @Override
     public BaseDataPresenter initPresenter() {
         return null;

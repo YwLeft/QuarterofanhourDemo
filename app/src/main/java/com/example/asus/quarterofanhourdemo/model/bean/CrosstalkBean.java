@@ -1,7 +1,5 @@
 package com.example.asus.quarterofanhourdemo.model.bean;
 
-import java.util.List;
-
 /**
  * 创建时间  2017/11/27 9:28
  * 创建人    gaozhijie
@@ -9,184 +7,123 @@ import java.util.List;
  */
 public class CrosstalkBean{
 
+    /**
+     * content : 111
+     * createTime : 2017-12-04T10:57:01
+     * imgUrls : https://www.zhaoapi.cn/images/quarter/1512356221131raw.png|https://www.zhaoapi.cn/images/quarter/1512356221146image2349020171201.png
+     * jid : 741
+     * uid : 675
+     * user : {"fans":"null","follow":"null","icon":"https://www.zhaoapi.cn/images/1512306825287image2017120311306.png","nickname":"zky","praiseNum":"null"}
+     */
 
-    private String msg;
-    private String code;
-    private List<DataBean> data;
+    private String content;
+    private String createTime;
+    private String imgUrls;
+    private int jid;
+    private int uid;
+    private UserBean user;
 
-    public String getMsg() {
-        return msg;
+    public String getContent() {
+        return content;
     }
 
-    public void setMsg(String msg) {
-        this.msg = msg;
+    public void setContent(String content) {
+        this.content = content;
     }
 
-    public String getCode() {
-        return code;
+    public String getCreateTime() {
+        return createTime;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
     }
 
-    public List<DataBean> getData() {
-        return data;
+    public String getImgUrls() {
+        return imgUrls;
     }
 
-    public void setData(List<DataBean> data) {
-        this.data = data;
+    public void setImgUrls(String imgUrls) {
+        this.imgUrls = imgUrls;
     }
 
-    public static class DataBean {
+    public int getJid() {
+        return jid;
+    }
 
+    public void setJid(int jid) {
+        this.jid = jid;
+    }
 
-        private Object commentNum;
-        private String content;
-        private String createTime;
-        private String imgUrls;
-        private int jid;
-        private Object praiseNum;
-        private Object shareNum;
-        private int uid;
-        private UserBean user;
+    public int getUid() {
+        return uid;
+    }
 
-        public Object getCommentNum() {
-            return commentNum;
+    public void setUid(int uid) {
+        this.uid = uid;
+    }
+
+    public UserBean getUser() {
+        return user;
+    }
+
+    public void setUser(UserBean user) {
+        this.user = user;
+    }
+
+    public static class UserBean {
+        /**
+         * fans : null
+         * follow : null
+         * icon : https://www.zhaoapi.cn/images/1512306825287image2017120311306.png
+         * nickname : zky
+         * praiseNum : null
+         */
+
+        private String fans;
+        private String follow;
+        private String icon;
+        private String nickname;
+        private String praiseNum;
+
+        public String getFans() {
+            return fans;
         }
 
-        public void setCommentNum(Object commentNum) {
-            this.commentNum = commentNum;
+        public void setFans(String fans) {
+            this.fans = fans;
         }
 
-        public String getContent() {
-            return content;
+        public String getFollow() {
+            return follow;
         }
 
-        public void setContent(String content) {
-            this.content = content;
+        public void setFollow(String follow) {
+            this.follow = follow;
         }
 
-        public String getCreateTime() {
-            return createTime;
+        public String getIcon() {
+            return icon;
         }
 
-        public void setCreateTime(String createTime) {
-            this.createTime = createTime;
+        public void setIcon(String icon) {
+            this.icon = icon;
         }
 
-        public String getImgUrls() {
-            return imgUrls;
+        public String getNickname() {
+            return nickname;
         }
 
-        public void setImgUrls(String imgUrls) {
-            this.imgUrls = imgUrls;
+        public void setNickname(String nickname) {
+            this.nickname = nickname;
         }
 
-        public int getJid() {
-            return jid;
-        }
-
-        public void setJid(int jid) {
-            this.jid = jid;
-        }
-
-        public Object getPraiseNum() {
+        public String getPraiseNum() {
             return praiseNum;
         }
 
-        public void setPraiseNum(Object praiseNum) {
+        public void setPraiseNum(String praiseNum) {
             this.praiseNum = praiseNum;
-        }
-
-        public Object getShareNum() {
-            return shareNum;
-        }
-
-        public void setShareNum(Object shareNum) {
-            this.shareNum = shareNum;
-        }
-
-        public int getUid() {
-            return uid;
-        }
-
-        public void setUid(int uid) {
-            this.uid = uid;
-        }
-
-        public UserBean getUser() {
-            return user;
-        }
-
-        public void setUser(UserBean user) {
-            this.user = user;
-        }
-
-        public static class UserBean {
-            /**
-             * age : null
-             * fans : null
-             * follow : null
-             * icon : https://www.zhaoapi.cn/images/148.jpg
-             * nickname : 李灿灿
-             * praiseNum : null
-             */
-
-            private Object age;
-            private String fans;
-            private String follow;
-            private String icon;
-            private String nickname;
-            private String praiseNum;
-
-            public Object getAge() {
-                return age;
-            }
-
-            public void setAge(Object age) {
-                this.age = age;
-            }
-
-            public String getFans() {
-                return fans;
-            }
-
-            public void setFans(String fans) {
-                this.fans = fans;
-            }
-
-            public String getFollow() {
-                return follow;
-            }
-
-            public void setFollow(String follow) {
-                this.follow = follow;
-            }
-
-            public String getIcon() {
-                return icon;
-            }
-
-            public void setIcon(String icon) {
-                this.icon = icon;
-            }
-
-            public String getNickname() {
-                return nickname;
-            }
-
-            public void setNickname(String nickname) {
-                this.nickname = nickname;
-            }
-
-            public String getPraiseNum() {
-                return praiseNum;
-            }
-
-            public void setPraiseNum(String praiseNum) {
-                this.praiseNum = praiseNum;
-            }
         }
     }
 }

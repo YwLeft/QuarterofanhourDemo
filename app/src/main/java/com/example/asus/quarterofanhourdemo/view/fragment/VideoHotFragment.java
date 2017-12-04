@@ -23,6 +23,7 @@ public class VideoHotFragment extends BaseFragment {
     RecyclerView videoHot;
     private List<String> mlist = new ArrayList<>();
 
+
     @Override
     public BaseDataPresenter initPresenter() {
         return null;

@@ -39,7 +39,7 @@
             android:layout_width="@dimen/x50"
             android:layout_height="@dimen/x50"
             android:layout_margin="10dp"
-            android:background="@drawable/raw_1500034665" />
+            android:background="@drawable/bianji" />
 
     </LinearLayout>
 
@@ -78,8 +78,8 @@
             android:drawableTop="@drawable/crosstalk_select"
             android:gravity="center"
             android:text="@string/crosstalk"
-            android:textSize="15sp"
-            android:textColor="@color/colorhui"/>
+            android:textColor="@color/colorhui"
+            android:textSize="15sp" />
 
         <RadioButton
             android:id="@+id/radio_rb03"

@@ -36,6 +36,7 @@ public class VideoFragment extends BaseFragment {
 
     private List<Fragment> mlist = new ArrayList<>();
 
+
     @Override
     public BaseDataPresenter initPresenter() {
         return null;

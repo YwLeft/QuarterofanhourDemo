@@ -50,4 +50,25 @@
     <string name="published_hite">请输入内容，禁止内容色情，暴力等违法国家法律的内容，违者将以封号处理！</string>
 
 
+    <!--成功-->
+    <string name="success_return">返回</string>
+    <string name="success_woods">发表成功，快分享给好友捧场吧~!</string>
+    <string name="success_QQ">QQ好友</string>
+    <string name="success_QQs">QQ空间</string>
+    <string name="success_friends">朋友圈</string>
+    <string name="success_WZ">微信</string>
+    <string name="success_Go">快去看看吧！！</string>
+
+    <!--我的关注-->
+    <string name="focuson_teturn">返回</string>
+    <string name="my_focuson">我的关注</string>
+    <string name="hot_focuson">热门关注</string>
+
+    <!--我的消息-->
+    <string name="my_alerts">消息</string>
+    <string name="Direct_messages">私信</string>
+    <string name="my_alerts_notice">消息通知</string>
+    <string name="my_alerts_remove">清除消息</string>
+    <string name="my_Direct_woods">功能大佬们正在努力研发中，敬请期待...</string>
+
 </resources>

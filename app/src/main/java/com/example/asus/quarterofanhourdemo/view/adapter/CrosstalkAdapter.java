@@ -31,9 +31,9 @@ import butterknife.ButterKnife;
  */
 public class CrosstalkAdapter extends RecyclerView.Adapter<CrosstalkAdapter.ViewHolder> {
     Context context;
-    List<CrosstalkBean.DataBean> mlist;
+    List<CrosstalkBean> mlist;
 
-    public CrosstalkAdapter(List<CrosstalkBean.DataBean> mlist, Context context) {
+    public CrosstalkAdapter(List<CrosstalkBean> mlist, Context context) {
         this.context = context;
         this.mlist = mlist;
     }
@@ -47,7 +47,7 @@ public class CrosstalkAdapter extends RecyclerView.Adapter<CrosstalkAdapter.View
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        CrosstalkBean.DataBean dataBean = mlist.get(position);
+        CrosstalkBean dataBean = mlist.get(position);
         holder.recommendTime.setText(dataBean.getCreateTime());
         holder.recommendName.setText(dataBean.getUser().getNickname());
         holder.recommendItemTitle.setText(dataBean.getContent());
@@ -170,6 +170,7 @@ public class CrosstalkAdapter extends RecyclerView.Adapter<CrosstalkAdapter.View
                 .error(R.mipmap.ic_launcher_round)
                 //.placeholder(R.mipmap.ic_launcher_round)
                 .transform(new GlideCircleTransform(context))
+
                 .into(holder.recommendItemTou);
 
         if (dataBean.getImgUrls() != null && dataBean.getImgUrls().length() != 0) {

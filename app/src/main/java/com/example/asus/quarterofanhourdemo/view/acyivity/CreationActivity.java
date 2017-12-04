@@ -1,8 +1,7 @@
 package com.example.asus.quarterofanhourdemo.view.acyivity;
 
-import android.os.Bundle;
+import android.content.Intent;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -11,7 +10,6 @@ import com.example.asus.quarterofanhourdemo.base.BaseActivity;
 import com.example.asus.quarterofanhourdemo.base.BaseDataPresenter;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * 创建时间  2017/11/29 9:13
@@ -22,9 +20,9 @@ public class CreationActivity extends BaseActivity implements View.OnClickListen
     @BindView(R.id.creation_call_off)
     TextView creationCallOff;
     @BindView(R.id.creation_video)
-    LinearLayout creationVideo;
+    TextView creationVideo;
     @BindView(R.id.creation_crosstalk)
-    LinearLayout creationCrosstalk;
+    TextView creationCrosstalk;
 
     @Override
     public BaseDataPresenter initPresenter() {
@@ -49,15 +47,8 @@ public class CreationActivity extends BaseActivity implements View.OnClickListen
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
-    }
-
-    @Override
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.creation_call_off:
                 finish();
                 break;
@@ -65,7 +56,8 @@ public class CreationActivity extends BaseActivity implements View.OnClickListen
                 Toast.makeText(this, "视频正在快马加鞭进行中", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.creation_crosstalk:
-
+                Intent intent = new Intent(this, PublishedActivity.class);
+                startActivity(intent);
                 break;
             default:
                 break;

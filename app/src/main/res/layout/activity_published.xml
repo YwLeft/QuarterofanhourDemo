@@ -21,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:text="@string/call_off"
+            android:text="@string/published_call_off"
             android:textColor="@color/colorwhile"
             android:textSize="20sp" />
 
@@ -48,59 +48,65 @@
     <EditText
         android:id="@+id/published_woods"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/y400"
         android:layout_marginLeft="@dimen/x40"
         android:layout_marginRight="@dimen/y40"
         android:layout_marginTop="@dimen/y40"
         android:background="@null"
+        android:gravity="start"
         android:hint="@string/published_hite"
-        android:inputType="textPassword"
-        android:lines="10"
         android:textColorHint="@color/colorhui" />
 
     <ImageView
         android:id="@+id/published_add_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/x40"
+        android:layout_marginRight="@dimen/y40"
+        android:layout_marginTop="@dimen/x40"
         android:background="@drawable/raw_1500020546" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
+        android:layout_marginLeft="@dimen/x40"
+        android:layout_marginRight="@dimen/y40"
         android:layout_marginTop="@dimen/y20"
         android:background="@color/colorhui" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_marginLeft="@dimen/x40"
+        android:layout_marginRight="@dimen/y40"
         android:gravity="center"
-        >
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center"
             android:text="@string/published_ta"
             android:textColorHint="@color/colorback"
-            android:textSize="20sp"
-            android:layout_margin="10dp"
-            android:gravity="center"/>
+            android:textSize="20sp" />
+
         <TextView
             android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
 
         <ImageView
             android:layout_width="@dimen/x50"
             android:layout_height="@dimen/y50"
             android:layout_margin="10dp"
-            android:background="@drawable/raw_1499943790"
-             />
+            android:background="@drawable/raw_1499943790" />
     </LinearLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginTop="@dimen/y20"
+        android:layout_marginLeft="@dimen/x40"
+        android:layout_marginRight="@dimen/y40"
         android:background="@color/colorhui" />
 </LinearLayout>

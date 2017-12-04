@@ -22,6 +22,7 @@ public class VideoNearbyFragment extends BaseFragment {
     @BindView(R.id.video_nearby)
     RecyclerView videoNearby;
     private List<String> mlist = new ArrayList<>();
+
     @Override
     public BaseDataPresenter initPresenter() {
         return null;

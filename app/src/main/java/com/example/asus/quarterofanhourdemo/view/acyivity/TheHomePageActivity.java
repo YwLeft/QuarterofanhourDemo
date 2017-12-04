@@ -1,7 +1,6 @@
 package com.example.asus.quarterofanhourdemo.view.acyivity;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -22,7 +21,6 @@ import com.example.asus.quarterofanhourdemo.view.iview.AnimationImage;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * 创建时间  2017/11/23 11:20
@@ -47,6 +45,7 @@ public class TheHomePageActivity extends BaseActivity implements View.OnClickLis
     private Fragment mf1, mf2, mf3;
     private FragmentManager fm;
     private SlidingMenu leftMenu;
+    int age;
 
     @Override
     public BaseDataPresenter initPresenter() {
@@ -76,8 +75,18 @@ public class TheHomePageActivity extends BaseActivity implements View.OnClickLis
 
         FragmentTransaction ft = fm.beginTransaction();
 
-        ft.add(R.id.fragment, mf1, "mf1");
-        ft.commit();
+        Intent intent = getIntent();
+        age = intent.getIntExtra("age",0);
+        if (age == 1){
+            ft.add(R.id.fragment, mf2, "mf2");
+            ft.commit();
+            radioRb02.setTextColor(getResources().getColor(R.color.colorbule));
+            radioRb02.setChecked(true);
+        }else {
+            ft.add(R.id.fragment, mf1, "mf1");
+            ft.commit();
+        }
+
 
     }
 
@@ -91,6 +100,8 @@ public class TheHomePageActivity extends BaseActivity implements View.OnClickLis
         View left = View.inflate(this, R.layout.side_left, null);
         RadioButton radioButton = left.findViewById(R.id.side_left_Set);
         LinearLayout linearLayout = left.findViewById(R.id.side_left);
+        LinearLayout linearLayoutfocus = left.findViewById(R.id.side_left_focus);
+        LinearLayout linearLayoutalerts = left.findViewById(R.id.side_left_alerts);
         leftMenu.setMenu(left);
         leftMenu.setMode(SlidingMenu.LEFT);
         leftMenu.setBehindOffsetRes(R.dimen.slidingmenu_offets);
@@ -100,6 +111,8 @@ public class TheHomePageActivity extends BaseActivity implements View.OnClickLis
 
         linearLayout.setOnClickListener(this);
         radioButton.setOnClickListener(this);
+        linearLayoutalerts.setOnClickListener(this);
+        linearLayoutfocus.setOnClickListener(this);
         recommendImagexie.setOnClickListener(this);
 
 
@@ -164,16 +177,18 @@ public class TheHomePageActivity extends BaseActivity implements View.OnClickLis
                 break;
             case R.id.side_left:
                 break;
+            case R.id.side_left_focus:
+                Intent intentfocus = new Intent(this,MyFocusoActivity.class);
+                startActivity(intentfocus);
+                break;
+            case R.id.side_left_alerts:
+                Intent intentalerts= new Intent(this,MyAlertsActivity.class);
+                startActivity(intentalerts);
+                break;
+
             default:
                 break;
         }
     }
 
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
-    }
 }

@@ -1,7 +1,6 @@
 package com.example.asus.quarterofanhourdemo.view.acyivity;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,7 +12,6 @@ import com.example.asus.quarterofanhourdemo.base.BaseActivity;
 import com.example.asus.quarterofanhourdemo.base.BaseDataPresenter;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * 创建时间  2017/11/29 9:31
@@ -55,12 +53,6 @@ public class ReferrerActivity extends BaseActivity implements View.OnClickListen
         return true;
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
-    }
 
     @Override
     public void onClick(View view) {
