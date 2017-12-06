@@ -32,6 +32,7 @@ public class AnimationView extends LinearLayout {
         View view = inflate(context, R.layout.my_messages_image,this);
         imageView = view.findViewById(R.id.my_alerts_messages_image);
         int resourceId = R.drawable.raw_1500868199;
+//        int resourceId = R.drawable.raw_1500020546;
         Glide.with(context).load(resourceId).into(imageView);
     }
 }

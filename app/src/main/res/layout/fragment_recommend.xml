@@ -38,7 +38,7 @@
     </RadioGroup>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="3dp"
+        android:layout_height="5dp"
         android:orientation="horizontal"
         android:weightSum="2"
         android:layout_marginLeft="@dimen/x40"

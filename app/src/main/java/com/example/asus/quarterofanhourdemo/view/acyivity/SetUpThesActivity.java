@@ -1,13 +1,13 @@
 package com.example.asus.quarterofanhourdemo.view.acyivity;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
-import android.app.AlertDialog;
 
 import com.example.asus.quarterofanhourdemo.R;
 import com.example.asus.quarterofanhourdemo.base.BaseActivity;
@@ -59,7 +59,7 @@ public class SetUpThesActivity extends BaseActivity implements View.OnClickListe
             case R.id.return_login:
                 //读取本地保存的状态及文件
                 sp = MyApp.getUserInfoSp();
-                if (sp.getBoolean("loginboolen", true)) {
+                if (sp.getBoolean("loginboolen", false)) {
                     //弹出一个对话框
                     new AlertDialog.Builder(SetUpThesActivity.this)
                             .setTitle("确认您的选择")
@@ -80,6 +80,10 @@ public class SetUpThesActivity extends BaseActivity implements View.OnClickListe
                             .setNegativeButton("取消", null)
                             .create()
                             .show();
+                } else {
+                    //退出后自动跳转到登陆页面
+                    Intent intent = new Intent(SetUpThesActivity.this, LoginOneActivity.class);
+                    startActivity(intent);
                 }
                 break;
             default:

@@ -7,6 +7,9 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
 
     <application
         android:allowBackup="true"
@@ -28,11 +31,14 @@
         <activity android:name=".view.acyivity.LoginOneActivity"/>
         <activity android:name=".view.acyivity.LoginTwoActivity"/>
         <activity android:name=".view.acyivity.CreationActivity"/>
-        <activity android:name=".view.acyivity.ReferrerActivity"/>
+
+        <activity android:name=".view.acyivity.ReferrerActivity"
+            android:launchMode="singleTask"/>
         <activity android:name=".view.acyivity.PublishedActivity"/>
         <activity android:name=".view.acyivity.MyFocusoActivity"/>
         <activity android:name=".view.acyivity.MyAlertsActivity"/>
         <activity android:name=".view.acyivity.SuccessActivity"/>
+
     </application>
 
 </manifest>

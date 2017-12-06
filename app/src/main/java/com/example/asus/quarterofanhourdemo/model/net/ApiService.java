@@ -5,9 +5,11 @@ import com.example.asus.quarterofanhourdemo.model.bean.CrosstalkBean;
 import com.example.asus.quarterofanhourdemo.model.bean.LoginBean;
 
 import java.util.List;
+import java.util.Map;
 
 import io.reactivex.Observable;
 import retrofit2.http.Field;
+import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 
@@ -32,6 +34,5 @@ public interface ApiService {
     //发布段子
     @POST("quarter/publishJoke")
     @FormUrlEncoded
-    Observable<Basebean> getPublished(@Field("uid") String uid,
-                                             @Field("content") String  content);
+    Observable<Basebean> getPublished(@FieldMap Map<String,String> MAP);
 }

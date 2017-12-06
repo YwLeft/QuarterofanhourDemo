@@ -5,6 +5,8 @@ import com.example.asus.quarterofanhourdemo.base.Basebean;
 import com.example.asus.quarterofanhourdemo.model.net.ApiService;
 import com.example.asus.quarterofanhourdemo.model.net.MRetrofit;
 
+import java.util.Map;
+
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
@@ -16,12 +18,13 @@ import io.reactivex.schedulers.Schedulers;
 public class GoodsPublishedModes {
     private MRetrofit mRetrofit;
 
+
     public GoodsPublishedModes() {
         mRetrofit = MRetrofit.getinstance();
     }
 
-    public void getPublishedData(final GoodsPublishedModes.DataPublished dataPublished, String uid, String content){
-        mRetrofit.create(ApiService.class).getPublished(uid,content)
+    public void getPublishedData(final GoodsPublishedModes.DataPublished dataPublished,Map<String,String> map){
+        mRetrofit.create(ApiService.class).getPublished(map)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new BaseObserver() {

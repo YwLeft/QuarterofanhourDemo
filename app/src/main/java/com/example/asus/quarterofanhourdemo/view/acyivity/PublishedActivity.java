@@ -16,6 +16,9 @@ import com.example.asus.quarterofanhourdemo.model.net.MyApp;
 import com.example.asus.quarterofanhourdemo.presenter.PublishedPresenter;
 import com.example.asus.quarterofanhourdemo.view.iview.PublishedView;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import butterknife.BindView;
 
 /**
@@ -33,6 +36,7 @@ public class PublishedActivity extends BaseActivity implements View.OnClickListe
     @BindView(R.id.published_add_image)
     ImageView publishedAddImage;
     private PublishedPresenter presenter;
+    private Map<String,String> map = new HashMap<>();
 
     @Override
     public BaseDataPresenter initPresenter() {
@@ -66,7 +70,9 @@ public class PublishedActivity extends BaseActivity implements View.OnClickListe
             case R.id.published:
                 String string = publishedWoods.getText().toString().trim();
                 if (string != null && string.length()>0){
-                    presenter.getData(MyApp.getUserInfoSp().getString("userId",""),string);
+                    map.put("uid", MyApp.getUserInfoSp().getString("userId",""));
+                    map.put("content",string);
+                    presenter.getData(map);
                 }else {
                     Toast.makeText(this, "内容不能为空", Toast.LENGTH_SHORT).show();
                 }
@@ -89,7 +95,7 @@ public class PublishedActivity extends BaseActivity implements View.OnClickListe
         String msg = bean.getMsg();
         if (code == 0){
             Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(PublishedActivity.this,SuccessActivity.class);
+            Intent intent = new Intent(PublishedActivity.this,CreationActivity.class);
             startActivity(intent);
             finish();
         }else if (code == 1){

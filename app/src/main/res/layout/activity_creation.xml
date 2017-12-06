@@ -28,7 +28,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="4"
+            android:layout_weight="4.3"
             android:gravity="center"
             android:text="@string/creation"
             android:textColor="@color/colorwhile"
@@ -58,7 +58,7 @@
             android:text="@string/creation_video"
             android:textColor="@color/colorback"
             android:textSize="20sp"
-            android:padding="@dimen/y30"/>
+            android:paddingTop="@dimen/y30"/>
 
         <TextView
             android:id="@+id/creation_crosstalk"
@@ -70,7 +70,7 @@
             android:text="@string/creation_crosstalk"
             android:textColor="@color/colorback"
             android:textSize="20sp"
-            android:padding="@dimen/y30"
+            android:paddingTop="@dimen/y30"
             android:gravity="center_horizontal"/>
 
     </LinearLayout>

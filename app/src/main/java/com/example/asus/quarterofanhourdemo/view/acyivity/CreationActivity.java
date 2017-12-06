@@ -9,6 +9,7 @@ import com.example.asus.quarterofanhourdemo.R;
 import com.example.asus.quarterofanhourdemo.base.BaseActivity;
 import com.example.asus.quarterofanhourdemo.base.BaseDataPresenter;
 
+
 import butterknife.BindView;
 
 /**
