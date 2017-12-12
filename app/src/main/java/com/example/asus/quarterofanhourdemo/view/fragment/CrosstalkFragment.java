@@ -55,6 +55,7 @@ public class CrosstalkFragment extends BaseFragment implements CrosstalkView, XR
         crosstalkRecycler.setLayoutManager(new LinearLayoutManager(getActivity()));
         CrosstalkAdapter adapter = new CrosstalkAdapter(data, getActivity());
         crosstalkRecycler.setAdapter(adapter);
+
     }
 
     @Override
@@ -79,7 +80,6 @@ public class CrosstalkFragment extends BaseFragment implements CrosstalkView, XR
 
     @Override
     public void onGetDataFail(String e) {
-        System.out.println("e = " + e);
         Toast.makeText(getActivity(), "网络错误"+e.toString(), Toast.LENGTH_SHORT).show();
     }
 

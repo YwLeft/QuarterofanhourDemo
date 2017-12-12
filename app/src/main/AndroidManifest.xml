@@ -38,7 +38,7 @@
         <activity android:name=".view.acyivity.MyFocusoActivity"/>
         <activity android:name=".view.acyivity.MyAlertsActivity"/>
         <activity android:name=".view.acyivity.SuccessActivity"/>
-
+        <activity android:name=".view.acyivity.Nextvideoview"/>
     </application>
 
 </manifest>

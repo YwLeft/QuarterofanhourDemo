@@ -14,7 +14,7 @@
         android:gravity="center"
         android:orientation="horizontal">
 
-        <ImageView
+        <com.example.asus.quarterofanhourdemo.view.iview.AnimationImage
             android:id="@+id/recommend_item_tous"
             android:layout_width="@dimen/x80"
             android:layout_height="@dimen/y80" />
@@ -152,6 +152,13 @@
         android:id="@+id/creation_recyclerview"
         android:layout_width="match_parent"
         android:layout_marginTop="@dimen/y20"
+
+        
         android:layout_height="wrap_content" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorhui"
+        android:layout_marginTop="@dimen/y20"/>
 
 </LinearLayout>

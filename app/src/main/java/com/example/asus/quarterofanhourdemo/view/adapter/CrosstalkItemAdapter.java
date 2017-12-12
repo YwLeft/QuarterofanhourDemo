@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.asus.quarterofanhourdemo.R;
 
 import butterknife.BindView;
@@ -38,10 +39,11 @@ public class CrosstalkItemAdapter extends RecyclerView.Adapter<CrosstalkItemAdap
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         //String[] split = mlist_image[position].split("\\|");
-
+        RequestOptions options = new RequestOptions();
+        options.placeholder(R.mipmap.ic_launcher_round);
         Glide.with(context)
                 .load(mlist_image[position])
-                .error(R.mipmap.ic_launcher)
+                .apply(options)
                 .into(holder.itemImagerc);
     }
 

@@ -4,13 +4,25 @@ android {
     compileSdkVersion 26
     defaultConfig {
         applicationId "com.example.asus.quarterofanhourdemo"
-        minSdkVersion 15
+        minSdkVersion 16
         targetSdkVersion 26
         versionCode 101
         versionName "1.0.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
-  
+    packagingOptions {
+        exclude 'META-INF/rxjava.properties'
+    }
+    configurations.all {
+        resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+            def requested = details.requested
+            if (requested.group == 'com.android.support') {
+                if (!requested.name.startsWith("multidex")) {
+                    details.useVersion '26.1.0'
+                }
+            }
+        }
+    }
     buildTypes {
         release {
             minifyEnabled false
@@ -32,7 +44,6 @@ dependencies {
     compile 'com.google.code.gson:gson:2.8.1'
     compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
     compile 'com.github.bumptech.glide:glide:3.6.1'
-    compile 'com.android.support:recyclerview-v7:27.0.0'
     compile 'com.jcodecraeer:xrecyclerview:1.5.2'
     compile 'com.youth.banner:banner:1.4.10'
     compile 'com.github.uncleleonfan:SlidingMenu:1.0.0'
@@ -43,5 +54,7 @@ dependencies {
     compile 'com.squareup.retrofit2:adapter-rxjava2:2.2.0'
     compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
     compile 'io.reactivex.rxjava2:rxjava:2.0.1'
+    compile 'com.github.LuckSiege.PictureSelector:picture_library:v2.1.7'
+    compile 'com.github.open-android:JieCaoVideoPlayer:0.1.0'
 }
 

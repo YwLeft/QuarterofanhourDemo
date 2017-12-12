@@ -5,7 +5,7 @@ import android.content.Context;
 /**
  * 创建时间  2017/11/27 15:52
  * 创建人    gaozhijie
- * 类描述
+ * 类描述      上下文
  */
 public interface IView {
     Context context();

@@ -13,6 +13,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.asus.quarterofanhourdemo.R;
 import com.example.asus.quarterofanhourdemo.base.BaseActivity;
 import com.example.asus.quarterofanhourdemo.base.BaseDataPresenter;
@@ -20,7 +21,6 @@ import com.example.asus.quarterofanhourdemo.model.net.MyApp;
 import com.example.asus.quarterofanhourdemo.view.fragment.CrosstalkFragment;
 import com.example.asus.quarterofanhourdemo.view.fragment.RecommendFragment;
 import com.example.asus.quarterofanhourdemo.view.fragment.VideoFragment;
-import com.example.asus.quarterofanhourdemo.view.iview.GlideCircleTransform;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 
 import butterknife.BindView;
@@ -80,22 +80,18 @@ public class TheHomePageActivity extends BaseActivity implements View.OnClickLis
         //读取本地保存的状态及文件
         sp = MyApp.getUserInfoSp();
         if (sp.getBoolean("loginboolen",true)){
+            RequestOptions options = new RequestOptions();
+            options.placeholder(R.mipmap.ic_launcher_round);
             //设置侧拉图片
             Glide.with(this)
                     .load(sp.getString("userIcon",""))
-                    .centerCrop()
-                    .error(R.mipmap.ic_launcher_round)
-                    //.placeholder(R.mipmap.ic_launcher_round)
-                    .transform(new GlideCircleTransform(this))
+                    .apply(options)
                     .into(animationImage);
 
             //设置主页图片
             Glide.with(this)
                     .load(sp.getString("userIcon",""))
-                    .centerCrop()
-                    .error(R.mipmap.ic_launcher_round)
-                    //.placeholder(R.mipmap.ic_launcher_round)
-                    .transform(new GlideCircleTransform(this))
+                    .apply(options)
                     .into(thehomeImage);
             //设置昵称
             name.setText(sp.getString("userNickname",""));
@@ -104,7 +100,7 @@ public class TheHomePageActivity extends BaseActivity implements View.OnClickLis
         fm = getSupportFragmentManager();
 
         FragmentTransaction ft = fm.beginTransaction();
-
+        //根据传不同的值加载不同的页面
         Intent intent = getIntent();
         age = intent.getIntExtra("age",0);
         if (age == 1){
@@ -140,9 +136,9 @@ public class TheHomePageActivity extends BaseActivity implements View.OnClickLis
         leftMenu.setMode(SlidingMenu.LEFT);
         leftMenu.setBehindOffsetRes(R.dimen.slidingmenu_offets);
         leftMenu.setFadeDegree(0.35f);
-        leftMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_NONE);
+        leftMenu.setTouchModeAbove(SlidingMenu.LEFT_RIGHT);
         leftMenu.attachToActivity(this, SlidingMenu.SLIDING_CONTENT);
-
+        //各种点击事件
         linearLayout.setOnClickListener(this);
         radioButton.setOnClickListener(this);
         linearLayoutalerts.setOnClickListener(this);
@@ -152,6 +148,10 @@ public class TheHomePageActivity extends BaseActivity implements View.OnClickLis
 
     }
 
+    /**
+     * 判断点击事件
+     * @param view
+     */
     @Override
     public void onClick(View view) {
         FragmentTransaction ft = fm.beginTransaction();

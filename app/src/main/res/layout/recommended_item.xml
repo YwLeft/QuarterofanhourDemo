@@ -149,17 +149,18 @@
         android:layout_height="@dimen/y450"
         android:layout_marginTop="10dp">
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/raw_1499917357"
 
-            />
+        <fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard
+            android:id="@+id/videoplayer"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y450" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:gravity="center"
+            >
 
             <TextView
                 android:layout_width="0dp"
@@ -238,6 +239,12 @@
         android:text="汽猪上高速  :不错"
         android:textColor="@color/colorhui"
         android:textSize="13sp"
+        android:layout_marginTop="@dimen/y20"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorhui"
         android:layout_marginTop="@dimen/y20"/>
 
 

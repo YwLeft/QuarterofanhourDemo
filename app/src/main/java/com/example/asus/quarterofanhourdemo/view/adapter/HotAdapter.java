@@ -15,11 +15,15 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.asus.quarterofanhourdemo.R;
+import com.example.asus.quarterofanhourdemo.model.bean.RecommendHotBean;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.loader.ImageLoader;
 
 import java.util.List;
+
+import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
+import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard;
 
 /**
  * 创建时间  2017/11/25 10:05
@@ -33,13 +37,13 @@ public class HotAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private LayoutInflater mLayoutInflater;
     private Context mContext;
     private int mHeaderCount = 1;
-    List<String> mlist_ry;
+    List<RecommendHotBean> mlist_ry;
     List<Integer> mlist;
 
-    public HotAdapter(List<String> mlist_ry, Context context, List<Integer> mlistRy) {
+    public HotAdapter(List<RecommendHotBean> data, Context context, List<Integer> mlist) {
         this.mContext = context;
-        this.mlist_ry = mlist_ry;
-        this.mlist = mlistRy;
+        this.mlist_ry = data;
+        this.mlist = mlist;
         mLayoutInflater = LayoutInflater.from(context);
     }
 
@@ -59,12 +63,19 @@ public class HotAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 
     public static class ContentViewHolder extends RecyclerView.ViewHolder {
-        private TextView textView;
+        private TextView textView_title,textView_time,textView_item_title;
         private RadioButton donghua1, donghua2, donghua3, donghua4, donghua5;
+        private ImageView imageView_item;
+        private final JCVideoPlayerStandard viewById;
 
         public ContentViewHolder(View itemView) {
             super(itemView);
-            textView = itemView.findViewById(R.id.recommend_title);
+            textView_title = itemView.findViewById(R.id.recommend_title);
+            textView_time = itemView.findViewById(R.id.recommend_time);
+            textView_item_title = itemView.findViewById(R.id.recommend_item_title);
+            imageView_item = itemView.findViewById(R.id.recommend_item_tou);
+            //imageView_image = itemView.findViewById(R.id.recommend_hot_image);
+            viewById = itemView.findViewById(R.id.videoplayer);
             donghua1 = itemView.findViewById(R.id.recommend_item_dong1);
             donghua2 = itemView.findViewById(R.id.recommend_item_dong2);
             donghua3 = itemView.findViewById(R.id.recommend_item_dong3);
@@ -81,6 +92,21 @@ public class HotAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             banneritem = itemView.findViewById(R.id.banner);
         }
     }
+
+   /* *//**
+     * 自定义的接口
+     * 并暴露
+     *//*
+    public interface setitemonclick {
+        void setonitemhol(View view);
+    }
+
+    setitemonclick setitemonclick;
+
+
+    public void setSetitemonclick(HotAdapter.setitemonclick setitemonclick) {
+        this.setitemonclick = setitemonclick;
+    }*/
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -111,7 +137,36 @@ public class HotAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             //banner设置方法全部调用完毕时最后调用
             ((HeaderViewHolder) holder).banneritem.start();
         } else if (holder instanceof ContentViewHolder) {
-            ((ContentViewHolder) holder).textView.setText(mlist_ry.get(position - mHeaderCount));
+
+           /* //条目的点击事件
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (setitemonclick != null) {
+                        setitemonclick.setonitemhol(v);
+                    }
+                }
+            });*/
+            RecommendHotBean recommendHotBean = mlist_ry.get(position - mHeaderCount);
+            //名字
+            ((ContentViewHolder) holder).textView_title.setText(recommendHotBean.getUser().getNickname());
+            //时间
+            ((ContentViewHolder) holder).textView_time.setText(recommendHotBean.getCreateTime());
+            //内容
+            ((ContentViewHolder) holder).textView_item_title.setText(recommendHotBean.getWorkDesc());
+            //头像
+            Glide.with(mContext)
+                    .load(recommendHotBean.getUser().getIcon())
+                    .into(((ContentViewHolder) holder).imageView_item);
+            //视频
+            ((ContentViewHolder) holder).viewById.setUp(recommendHotBean.getVideoUrl(), JCVideoPlayer.SCREEN_LAYOUT_LIST);
+
+            //封面
+            Glide.with(mContext)
+                    .load(recommendHotBean.getCover())
+                    .into(((ContentViewHolder) holder).viewById.thumbImageView);
+
+
             ((ContentViewHolder) holder).donghua5.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

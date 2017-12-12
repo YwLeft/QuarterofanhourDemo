@@ -23,6 +23,7 @@ public class MyApp extends Application {
         sp = getSharedPreferences("UserInfo",MODE_PRIVATE);
 
 
+
     }
 
     public static SharedPreferences getUserInfoSp() {

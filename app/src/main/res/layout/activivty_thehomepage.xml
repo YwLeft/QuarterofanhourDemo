@@ -16,7 +16,7 @@
         android:gravity="center"
         android:orientation="horizontal">
 
-        <ImageView
+        <com.example.asus.quarterofanhourdemo.view.iview.AnimationImage
             android:id="@+id/thehome_image"
             android:layout_centerInParent="true"
             android:layout_width="@dimen/x80"

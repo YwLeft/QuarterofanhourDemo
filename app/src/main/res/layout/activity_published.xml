@@ -57,20 +57,12 @@
         android:hint="@string/published_hite"
         android:textColorHint="@color/colorhui" />
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/published_image"
+        android:id="@+id/published_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/x40"
         android:layout_marginRight="@dimen/y40"
         android:layout_marginTop="@dimen/y20"/>
-    <ImageView
-        android:id="@+id/published_add_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/x40"
-        android:layout_marginRight="@dimen/y40"
-        android:layout_marginTop="@dimen/x40"
-        android:background="@drawable/raw_1500020546" />
 
 
     <View

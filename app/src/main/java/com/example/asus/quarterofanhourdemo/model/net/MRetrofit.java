@@ -31,6 +31,7 @@ public  class MRetrofit {
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
     }
+
     public static MRetrofit getinstance(){
         if (INSTANCE==null){
             synchronized (MRetrofit.class){

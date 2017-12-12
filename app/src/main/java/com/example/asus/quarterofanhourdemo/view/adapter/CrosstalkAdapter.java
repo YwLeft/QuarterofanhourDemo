@@ -15,9 +15,9 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.asus.quarterofanhourdemo.R;
 import com.example.asus.quarterofanhourdemo.model.bean.CrosstalkBean;
-import com.example.asus.quarterofanhourdemo.view.iview.GlideCircleTransform;
 
 import java.util.List;
 
@@ -164,13 +164,12 @@ public class CrosstalkAdapter extends RecyclerView.Adapter<CrosstalkAdapter.View
                 });
             }
         });
+        RequestOptions options = new RequestOptions();
+        options.placeholder(R.mipmap.ic_launcher_round);
         Glide.with(context)
                 .load(dataBean.getUser().getIcon())
-                .centerCrop()
-                .error(R.mipmap.ic_launcher_round)
+                .apply(options)
                 //.placeholder(R.mipmap.ic_launcher_round)
-                .transform(new GlideCircleTransform(context))
-
                 .into(holder.recommendItemTou);
 
         if (dataBean.getImgUrls() != null && dataBean.getImgUrls().length() != 0) {
@@ -180,6 +179,8 @@ public class CrosstalkAdapter extends RecyclerView.Adapter<CrosstalkAdapter.View
             CrosstalkItemAdapter adapter = new CrosstalkItemAdapter(split, context);
 
             holder.creationRecyclerview.setAdapter(adapter);
+        }else {
+            holder.creationRecyclerview.setVisibility(View.VISIBLE);
         }
 
 
