@@ -15,7 +15,6 @@ import com.example.asus.quarterofanhourdemo.R;
 import com.example.asus.quarterofanhourdemo.base.BaseActivity;
 import com.example.asus.quarterofanhourdemo.base.BaseDataPresenter;
 import com.example.asus.quarterofanhourdemo.base.Basebean;
-import com.example.asus.quarterofanhourdemo.model.net.MyApp;
 import com.example.asus.quarterofanhourdemo.presenter.PublishedPresenter;
 import com.example.asus.quarterofanhourdemo.view.adapter.GridImageAdapter;
 import com.example.asus.quarterofanhourdemo.view.iview.FullyGridLayoutManager;
@@ -27,10 +26,9 @@ import com.luck.picture.lib.entity.LocalMedia;
 import com.luck.picture.lib.permissions.RxPermissions;
 import com.luck.picture.lib.tools.PictureFileUtils;
 
+import java.io.File;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import butterknife.BindView;
 import io.reactivex.Observer;
@@ -52,15 +50,16 @@ public class PublishedActivity extends BaseActivity implements View.OnClickListe
     RecyclerView publishedImage;
 
     private PublishedPresenter presenter;
-    private Map<String, String> map = new HashMap<>();
 
     private List<LocalMedia> selectList = new ArrayList<>();
     private int maxSelectNum = 9;
     private GridImageAdapter adapter;
 
+    List<File> list = new ArrayList<>();
+    private String string;
+
     @Override
     public BaseDataPresenter initPresenter() {
-        presenter = new PublishedPresenter(this);
         return presenter;
     }
 
@@ -200,6 +199,8 @@ public class PublishedActivity extends BaseActivity implements View.OnClickListe
                     // 3.media.getCompressPath();为压缩后path，需判断media.isCompressed();是否为true
                     // 如果裁剪并压缩了，已取压缩路径为准，因为是先裁剪后压缩的
                     for (LocalMedia media : selectList) {
+                        File file = new File(media.getCompressPath());
+                        list.add(file);
                         Log.i("图片-----》", media.getPath());
                         Log.i("图片-----》", media.getCutPath());
                         Log.i("图片-----》", media.getCompressPath());
@@ -223,11 +224,10 @@ public class PublishedActivity extends BaseActivity implements View.OnClickListe
                 finish();
                 break;
             case R.id.published:
-                String string = publishedWoods.getText().toString().trim();
+                string = publishedWoods.getText().toString().trim();
                 if (string != null && string.length() > 0) {
-                    map.put("uid", MyApp.getUserInfoSp().getString("userId", ""));
-                    map.put("content",string);
-                    presenter.getData(map);
+                    presenter = new PublishedPresenter(this,string,list);
+                    presenter.getData();
                 } else {
                     Toast.makeText(this, "内容不能为空", Toast.LENGTH_SHORT).show();
                 }

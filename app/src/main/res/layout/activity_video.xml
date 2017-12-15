@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y40"
+        android:background="@color/colorhuis" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorhuis"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/video_item_return"
+            android:layout_width="@dimen/x40"
+            android:layout_height="@dimen/y40"
+            android:layout_marginBottom="7dp"
+            android:layout_marginLeft="@dimen/y30"
+            android:layout_marginTop="7dp"
+            android:background="@drawable/fan" />
+
+        <ImageView
+            android:layout_width="@dimen/x45"
+            android:layout_height="@dimen/y45"
+            android:layout_margin="7dp"
+            android:background="@drawable/xin" />
+
+        <ImageView
+            android:layout_width="@dimen/x40"
+            android:layout_height="@dimen/y40"
+            android:layout_margin="7dp"
+            android:background="@drawable/sui" />
+
+        <ImageView
+            android:layout_width="@dimen/x40"
+            android:layout_height="@dimen/y40"
+            android:layout_margin="7dp"
+            android:background="@drawable/fexiang" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <com.example.asus.quarterofanhourdemo.view.iview.AnimationImage
+            android:id="@+id/video_item_tou"
+            android:layout_width="@dimen/x80"
+            android:layout_height="@dimen/y80"
+            android:layout_marginBottom="7dp"
+            android:layout_marginRight="@dimen/y30"
+            android:layout_marginTop="7dp"
+            android:src="@drawable/raw_1500033586" />
+    </LinearLayout>
+
+    <fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard
+        android:id="@+id/item_videoplayer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/video_xiang_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorhuis"
+        android:paddingLeft="@dimen/x20"
+        android:paddingTop="@dimen/y20"
+        android:text="我是标题"
+        android:textColor="@color/colorback"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/video_xiang_count"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorhuis"
+        android:paddingBottom="@dimen/y20"
+        android:paddingLeft="@dimen/x20"
+        android:paddingTop="@dimen/y20"
+        android:text="814"
+        android:textSize="15sp" />
+    <TextView
+        android:id="@+id/video_item_images"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#DEDEDE"
+        android:paddingTop="@dimen/y50"
+        android:paddingBottom="@dimen/y50"
+        android:drawableTop="@drawable/raw_1500033586"
+        android:text="拿起手机抢个沙发吧！！！"
+        android:gravity="center"
+        />
+
+
+</LinearLayout>

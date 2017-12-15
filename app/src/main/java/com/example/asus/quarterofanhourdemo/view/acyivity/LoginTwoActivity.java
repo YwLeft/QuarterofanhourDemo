@@ -79,7 +79,7 @@ public class LoginTwoActivity extends BaseActivity implements View.OnClickListen
                 presenter.getData(mobile,password);
                 break;
             case R.id.login_two_registered:
-                Intent intent = new Intent(this,TheHomePageActivity.class);
+                Intent intent = new Intent(this,ReferrerActivity.class);
                 startActivity(intent);
                 break;
             default:

@@ -9,8 +9,10 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.example.asus.quarterofanhourdemo.R;
+import com.example.asus.quarterofanhourdemo.model.bean.VideoHotBean;
 
 import java.util.List;
+import java.util.Random;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -23,12 +25,12 @@ import butterknife.ButterKnife;
 public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> {
 
     Context context;
-    List<String> mlist;
+    List<VideoHotBean> mlist;
 
 
-    public VideoAdapter(List<String> mlist, Context context) {
+    public VideoAdapter(List<VideoHotBean> data, Context context) {
         this.context = context;
-        this.mlist = mlist;
+        this.mlist = data;
     }
 
     @Override
@@ -40,8 +42,46 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Glide.with(context).load(mlist.get(position)).into(holder.videoItemImage);
+        VideoHotBean videoHotBean = mlist.get(position);
 
+
+        ViewGroup.LayoutParams layoutParams = holder.videoItemImage.getLayoutParams();
+        Random random = new Random();
+        int i = random.nextInt(300);
+        layoutParams.height = 300 + i;
+//        //视频
+//         holder.videoItemImage.setUp(videoHotBean.getVideoUrl(), JCVideoPlayer.SCREEN_LAYOUT_LIST);
+
+        //封面
+        Glide.with(context)
+                .load(videoHotBean.getCover())
+                .into(holder.videoItemImage);
+        holder.itemView.setTag(position);
+        //条目的点击事件
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (setitemonclick != null) {
+                    setitemonclick.setonitemhol(v, (Integer) v.getTag());
+                }
+            }
+        });
+
+    }
+
+    /*
+      * 自定义的接口
+      * 并暴露
+      */
+    public interface setitemonclick {
+        void setonitemhol(View view, int position);
+    }
+
+    setitemonclick setitemonclick;
+
+
+    public void setSetitemonclick(VideoAdapter.setitemonclick setitemonclick) {
+        this.setitemonclick = setitemonclick;
     }
 
     @Override

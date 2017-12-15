@@ -38,7 +38,6 @@ public class CrosstalkItemAdapter extends RecyclerView.Adapter<CrosstalkItemAdap
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        //String[] split = mlist_image[position].split("\\|");
         RequestOptions options = new RequestOptions();
         options.placeholder(R.mipmap.ic_launcher_round);
         Glide.with(context)

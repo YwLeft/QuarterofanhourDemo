@@ -4,15 +4,18 @@ import com.example.asus.quarterofanhourdemo.base.Basebean;
 import com.example.asus.quarterofanhourdemo.model.bean.CrosstalkBean;
 import com.example.asus.quarterofanhourdemo.model.bean.LoginBean;
 import com.example.asus.quarterofanhourdemo.model.bean.RecommendHotBean;
+import com.example.asus.quarterofanhourdemo.model.bean.VideoHotBean;
 
 import java.util.List;
 import java.util.Map;
 
 import io.reactivex.Observable;
-import okhttp3.ResponseBody;
+import okhttp3.MultipartBody;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.Part;
 import retrofit2.http.QueryMap;
 
 /**
@@ -34,24 +37,24 @@ public interface ApiService {
                                              @Field("password") String  password);
 
 
-    //热门视频
+    //推荐热门视频
     @POST("quarter/getVideos")
     Observable<Basebean<List<RecommendHotBean>>> getRecommendHot(@QueryMap Map<String,String> map);
 
-    /*//发布段子
-    @Multipart
-    @POST("quarter/publishJoke")
-    Observable<ResponseBody> getPublished(
-            @Field("uid") String mobile,
-            @Field("content") String content,
-            @Part MultipartBody.Part file);*/
+
+    //视频热门视频
+    @POST("quarter/getHotVideos")
+    Observable<Basebean<List<VideoHotBean>>> getVideoHotBean(@QueryMap Map<String,String> map);
 
     //发布段子
+    @Multipart
     @POST("quarter/publishJoke")
-    Observable<ResponseBody> getPublished(
-            @QueryMap Map<String,String> map);
+    Observable<Basebean> getPublished(
+            @Part MultipartBody.Part uid,
+            @Part MultipartBody.Part content,
+            @Part List<MultipartBody.Part> list
 
-
+    );
 
 
 }

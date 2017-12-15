@@ -3,8 +3,13 @@ package com.example.asus.quarterofanhourdemo.view.adapter;
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,10 +68,11 @@ public class HotAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 
     public static class ContentViewHolder extends RecyclerView.ViewHolder {
-        private TextView textView_title,textView_time,textView_item_title;
+        private TextView textView_title,textView_time,textView_item_title,textone,texttwo;
         private RadioButton donghua1, donghua2, donghua3, donghua4, donghua5;
         private ImageView imageView_item;
         private final JCVideoPlayerStandard viewById;
+
 
         public ContentViewHolder(View itemView) {
             super(itemView);
@@ -74,7 +80,9 @@ public class HotAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             textView_time = itemView.findViewById(R.id.recommend_time);
             textView_item_title = itemView.findViewById(R.id.recommend_item_title);
             imageView_item = itemView.findViewById(R.id.recommend_item_tou);
-            //imageView_image = itemView.findViewById(R.id.recommend_hot_image);
+            textone = itemView.findViewById(R.id.recommend_item_commentsone);
+            texttwo = itemView.findViewById(R.id.recommend_item_commentstwo);
+
             viewById = itemView.findViewById(R.id.videoplayer);
             donghua1 = itemView.findViewById(R.id.recommend_item_dong1);
             donghua2 = itemView.findViewById(R.id.recommend_item_dong2);
@@ -118,6 +126,7 @@ public class HotAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         return null;
     }
 
+    @SuppressLint("ResourceAsColor")
     @Override
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, int position) {
         if (holder instanceof HeaderViewHolder) {
@@ -165,6 +174,18 @@ public class HotAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             Glide.with(mContext)
                     .load(recommendHotBean.getCover())
                     .into(((ContentViewHolder) holder).viewById.thumbImageView);
+
+            //评论改变个别颜色
+            SpannableString spannableString = new SpannableString(((ContentViewHolder) holder).textone.getText().toString());
+            ForegroundColorSpan colorSpan = new ForegroundColorSpan(Color.parseColor("#03A9F4"));
+            spannableString.setSpan(colorSpan, 0, 5, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+            ((ContentViewHolder) holder).textone.setText(spannableString);
+
+            //评论改变个别颜色
+            SpannableString spannableString1 = new SpannableString(((ContentViewHolder) holder).texttwo.getText().toString());
+            ForegroundColorSpan colorSpan1 = new ForegroundColorSpan(Color.parseColor("#03A9F4"));
+            spannableString1.setSpan(colorSpan1, 0, 5, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+            ((ContentViewHolder) holder).texttwo.setText(spannableString1);
 
 
             ((ContentViewHolder) holder).donghua5.setOnClickListener(new View.OnClickListener() {

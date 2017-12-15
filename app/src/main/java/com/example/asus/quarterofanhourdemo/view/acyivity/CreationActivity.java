@@ -59,7 +59,7 @@ public class CreationActivity extends BaseActivity implements View.OnClickListen
             case R.id.creation_crosstalk:
                 Intent intent = new Intent(this, PublishedActivity.class);
                 startActivity(intent);
-                break;
+                 break;
             default:
                 break;
         }

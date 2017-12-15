@@ -31,7 +31,7 @@ public class RecommendFocusonFragment extends BaseFragment implements XRecyclerV
     XRecyclerView focusonRecyclerview;
     private List<Integer> mlist = new ArrayList<>();
     private RecommendHotPresenter presenter;
-    private List<RecommendHotBean> data;
+    private List<RecommendHotBean> data = new ArrayList<>();
     private int page = 1;
     private HashMap<String, String> map;
 
@@ -62,13 +62,14 @@ public class RecommendFocusonFragment extends BaseFragment implements XRecyclerV
             }
         });*/
     }
+
     @Override
     public void initView() {
 
         map = new HashMap<>();
-        map.put("type","1");
+        map.put("type", "1");
         String pages = String.valueOf(page);
-        map.put("page",pages);
+        map.put("page", pages);
         presenter.getData(map);
 
         //获取图片
@@ -86,6 +87,7 @@ public class RecommendFocusonFragment extends BaseFragment implements XRecyclerV
 
     @Override
     public void onRefresh() {
+        page = 1;
         data.clear();
         initView();
         stoprecycler();
@@ -98,7 +100,7 @@ public class RecommendFocusonFragment extends BaseFragment implements XRecyclerV
 
     @Override
     public void onLoadMore() {
-        data.clear();
+        page++;
         initView();
         stoprecycler();
     }
@@ -112,12 +114,12 @@ public class RecommendFocusonFragment extends BaseFragment implements XRecyclerV
     public void onGetRecommendHotSucceed(Basebean<List<RecommendHotBean>> bean) {
         int code = Integer.parseInt(bean.getCode());
         String msg = bean.getMsg();
-        if (code == 0){
-            data = bean.getData();
+        if (code == 0) {
+            data.addAll(bean.getData());
             initData();
-        }else if (code == 1){
+        } else if (code == 1) {
             Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show();
-        }else {
+        } else {
             Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show();
         }
 

@@ -224,7 +224,7 @@
 
     <TextView
         android:id="@+id/recommend_item_commentsone"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="汽猪上高速  :不错"
         android:textColor="@color/colorhui"
@@ -234,7 +234,7 @@
 
     <TextView
         android:id="@+id/recommend_item_commentstwo"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="汽猪上高速  :不错"
         android:textColor="@color/colorhui"

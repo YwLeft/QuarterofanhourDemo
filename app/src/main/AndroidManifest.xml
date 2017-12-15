@@ -18,7 +18,7 @@
         android:name=".model.net.MyApp"
         android:roundIcon="@drawable/raw_1499933216"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/ThemeActivity">
         <activity android:name=".view.acyivity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -39,6 +39,7 @@
         <activity android:name=".view.acyivity.MyAlertsActivity"/>
         <activity android:name=".view.acyivity.SuccessActivity"/>
         <activity android:name=".view.acyivity.Nextvideoview"/>
+        <activity android:name=".view.acyivity.VoideActivity"/>
     </application>
 
 </manifest>

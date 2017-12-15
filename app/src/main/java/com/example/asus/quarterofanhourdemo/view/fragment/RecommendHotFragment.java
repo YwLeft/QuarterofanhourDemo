@@ -32,7 +32,7 @@ public class RecommendHotFragment extends BaseFragment implements XRecyclerView.
     XRecyclerView hotRecyclerview;
     private List<Integer> mlist = new ArrayList<>();
     private RecommendHotPresenter presenter;
-    private List<RecommendHotBean> data;
+    private List<RecommendHotBean> data = new ArrayList<>();
     private Map<String, String> map;
     int page = 1;
 
@@ -114,7 +114,7 @@ public class RecommendHotFragment extends BaseFragment implements XRecyclerView.
         int code = Integer.parseInt(bean.getCode());
         String msg = bean.getMsg();
         if (code == 0){
-            data = bean.getData();
+            data.addAll(bean.getData());
             initData();
         }else if (code == 1){
             Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show();

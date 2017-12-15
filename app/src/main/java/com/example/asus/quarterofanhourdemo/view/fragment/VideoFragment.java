@@ -90,7 +90,7 @@ public class VideoFragment extends BaseFragment {
         videoRg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                RadioButton mbutton = (RadioButton) radioGroup.findViewById(i);
+                RadioButton mbutton = radioGroup.findViewById(i);
                 int is = Integer.parseInt((String) mbutton.getTag());
                 videoViewpager.setCurrentItem(is);
             }
