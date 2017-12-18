@@ -172,15 +172,14 @@ public class CrosstalkAdapter extends RecyclerView.Adapter<CrosstalkAdapter.View
                 //.placeholder(R.mipmap.ic_launcher_round)
                 .into(holder.recommendItemTou);
 
-        if (dataBean.getImgUrls() != null && dataBean.getImgUrls().length() != 0) {
+        if (dataBean.getImgUrls() != null && dataBean.getImgUrls().length() != 0&&!dataBean.getImgUrls().equals("")) {
+            holder.creationRecyclerview.setVisibility(View.VISIBLE);
             String[] split = dataBean.getImgUrls().split("\\|");
             holder.creationRecyclerview.setLayoutManager(new GridLayoutManager(context, 3));
-
             CrosstalkItemAdapter adapter = new CrosstalkItemAdapter(split, context);
-
             holder.creationRecyclerview.setAdapter(adapter);
         }else {
-            holder.creationRecyclerview.setVisibility(View.VISIBLE);
+            holder.creationRecyclerview.setVisibility(View.GONE);
         }
 
 

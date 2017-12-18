@@ -5,6 +5,7 @@ import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.text.SpannableString;
@@ -21,6 +22,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.asus.quarterofanhourdemo.R;
 import com.example.asus.quarterofanhourdemo.model.bean.RecommendHotBean;
+import com.example.asus.quarterofanhourdemo.view.acyivity.PulldownViewActivity;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.loader.ImageLoader;
@@ -44,6 +46,7 @@ public class HotAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private int mHeaderCount = 1;
     List<RecommendHotBean> mlist_ry;
     List<Integer> mlist;
+    private RecommendHotBean recommendHotBean;
 
     public HotAdapter(List<RecommendHotBean> data, Context context, List<Integer> mlist) {
         this.mContext = context;
@@ -101,7 +104,7 @@ public class HotAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         }
     }
 
-   /* *//**
+  /* *//*
      * 自定义的接口
      * 并暴露
      *//*
@@ -146,17 +149,23 @@ public class HotAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             //banner设置方法全部调用完毕时最后调用
             ((HeaderViewHolder) holder).banneritem.start();
         } else if (holder instanceof ContentViewHolder) {
+            final RecommendHotBean recommendHotBean = mlist_ry.get(position - mHeaderCount);
 
-           /* //条目的点击事件
-            holder.itemView.setOnClickListener(new View.OnClickListener() {
+            //条目头像的点击事件
+            ((ContentViewHolder) holder).imageView_item.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (setitemonclick != null) {
-                        setitemonclick.setonitemhol(v);
-                    }
+                    String uid = String.valueOf(recommendHotBean.getUid());
+                    String cover = recommendHotBean.getUser().getIcon();
+                    String nickname = recommendHotBean.getUser().getNickname();
+                    Intent intent = new Intent(mContext, PulldownViewActivity.class);
+                    intent.putExtra("uid",uid);
+                    intent.putExtra("tou",cover);
+                    intent.putExtra("nickname",nickname);
+                    mContext.startActivity(intent);
                 }
-            });*/
-            RecommendHotBean recommendHotBean = mlist_ry.get(position - mHeaderCount);
+            });
+
             //名字
             ((ContentViewHolder) holder).textView_title.setText(recommendHotBean.getUser().getNickname());
             //时间

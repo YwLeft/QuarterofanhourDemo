@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/background_img"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginTop="-100dp"
+        android:contentDescription="@null"
+        android:scaleType="fitXY"
+        android:src="@drawable/raw_1500865218" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/Personal_details_return"
+            android:layout_width="@dimen/x45"
+            android:layout_height="@dimen/y45"
+            android:layout_marginBottom="@dimen/y20"
+            android:layout_marginLeft="@dimen/x20"
+            android:layout_marginTop="@dimen/y50"
+            android:background="@drawable/fanone" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/y20"
+            android:layout_marginTop="@dimen/y50"
+            android:id="@+id/Personal_details_namess"
+            android:text="我是名字"
+            android:textSize="20sp"
+            android:textColor="@color/colorwhile"
+            android:layout_marginLeft="@dimen/x400"
+           />
+
+        <ImageView
+            android:layout_width="@dimen/x45"
+            android:layout_height="@dimen/y45"
+            android:layout_alignParentTop="true"
+            android:layout_marginBottom="@dimen/y20"
+            android:layout_marginTop="@dimen/y50"
+            android:layout_toLeftOf="@+id/imageView2"
+            android:layout_toStartOf="@+id/imageView2"
+            android:background="@drawable/xiangs" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="@dimen/x45"
+            android:layout_height="@dimen/y45"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginBottom="@dimen/y20"
+            android:layout_marginLeft="@dimen/x40"
+            android:layout_marginRight="@dimen/x40"
+            android:layout_marginTop="@dimen/y50"
+            android:background="@drawable/xiaoxiss" />
+
+
+    </RelativeLayout>
+
+    <com.example.asus.quarterofanhourdemo.view.iview.PullScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:headerHeight="300dp"
+        app:headerVisibleHeight="100dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="112dp"
+                android:layout_marginTop="100dp"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="85dp"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/card_avatar_bar">
+
+                    <TextView
+                        android:id="@+id/Personal_details_zan"
+                        android:layout_width="@dimen/x110"
+                        android:layout_height="@dimen/y110"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginRight="@dimen/x50"
+                        android:layout_marginTop="@dimen/y10"
+                        android:background="@drawable/shapzanone"
+                        android:drawableTop="@drawable/zantwo"
+                        android:gravity="center"
+                        android:paddingTop="@dimen/y5"
+                        android:text="16"
+                        android:textColor="@color/colorwhile"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:id="@+id/user_post"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/Personal_details_guanzhu"
+                        android:layout_alignStart="@+id/Personal_details_guanzhu"
+                        android:layout_alignTop="@+id/Personal_details_zan"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        android:text="10086 粉丝      |       17 关注"
+                        android:textColor="#A1A1A1"
+                        android:textSize="16sp" />
+
+
+                    <TextView
+                        android:id="@+id/Personal_details_guanzhu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/user_post"
+                        android:layout_marginLeft="@dimen/y280"
+                        android:layout_marginTop="@dimen/y20"
+                        android:layout_marginBottom="@dimen/y10"
+                        android:background="@drawable/shape"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:paddingBottom="@dimen/x6"
+                        android:paddingLeft="@dimen/x130"
+                        android:paddingRight="@dimen/x130"
+                        android:paddingTop="@dimen/x6"
+                        android:singleLine="true"
+                        android:text="+  关注"
+                        android:textColor="#A1A1A1"
+                        android:textSize="17sp" />
+                </RelativeLayout>
+
+                <com.example.asus.quarterofanhourdemo.view.iview.AnimationImage
+                    android:id="@+id/Personal_details_tou"
+                    android:layout_width="@dimen/x150"
+                    android:layout_height="@dimen/y150"
+                    android:layout_marginLeft="@dimen/x30"
+                    android:src="@drawable/raw_1500865218" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-1dp"
+                android:orientation="vertical"
+                android:paddingBottom="8dp"
+                android:background="@color/colorwhile"
+                >
+                <TextView
+                    android:id="@+id/Personal_details_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/x100"
+                    android:text="作品（3）"
+                    android:textColor="@color/colorbule"
+                    android:textSize="19sp" />
+
+                <View
+                    android:layout_width="@dimen/x200"
+                    android:layout_height="3dp"
+                    android:layout_marginLeft="@dimen/x80"
+                    android:layout_marginTop="@dimen/x10"
+                    android:background="@color/colorbule" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="18dp"
+                    android:background="@color/colorhuis" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/Personal_details_recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+    </LinearLayout>
+
+    </com.example.asus.quarterofanhourdemo.view.iview.PullScrollView>
+
+
+</RelativeLayout>

@@ -152,9 +152,9 @@
         android:id="@+id/creation_recyclerview"
         android:layout_width="match_parent"
         android:layout_marginTop="@dimen/y20"
-
-        
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        />
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"

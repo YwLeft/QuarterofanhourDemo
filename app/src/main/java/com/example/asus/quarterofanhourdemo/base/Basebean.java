@@ -5,8 +5,16 @@ public class Basebean<T> {
 
     private String msg;
     private String code;
+    private boolean guan  = false;
     private T data;
 
+    public boolean isGuan() {
+        return guan;
+    }
+
+    public void setGuan(boolean guan) {
+        this.guan = guan;
+    }
 
     public String getCode() {
         return code;

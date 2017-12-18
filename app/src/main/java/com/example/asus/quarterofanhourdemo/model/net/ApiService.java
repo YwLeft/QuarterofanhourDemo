@@ -3,6 +3,7 @@ package com.example.asus.quarterofanhourdemo.model.net;
 import com.example.asus.quarterofanhourdemo.base.Basebean;
 import com.example.asus.quarterofanhourdemo.model.bean.CrosstalkBean;
 import com.example.asus.quarterofanhourdemo.model.bean.LoginBean;
+import com.example.asus.quarterofanhourdemo.model.bean.PersonalDetailsBean;
 import com.example.asus.quarterofanhourdemo.model.bean.RecommendHotBean;
 import com.example.asus.quarterofanhourdemo.model.bean.VideoHotBean;
 
@@ -37,14 +38,23 @@ public interface ApiService {
                                              @Field("password") String  password);
 
 
+
     //推荐热门视频
     @POST("quarter/getVideos")
     Observable<Basebean<List<RecommendHotBean>>> getRecommendHot(@QueryMap Map<String,String> map);
+
+    //推荐热门视频个人详情页面
+    @POST("quarter/getUserVideos")
+    Observable<Basebean<List<PersonalDetailsBean>>> getPersonalDetails(@QueryMap Map<String,String> map);
 
 
     //视频热门视频
     @POST("quarter/getHotVideos")
     Observable<Basebean<List<VideoHotBean>>> getVideoHotBean(@QueryMap Map<String,String> map);
+
+    //个人关注
+    @POST("quarter/follow")
+    Observable<Basebean> getFocuson(@QueryMap Map<String,String> map);
 
     //发布段子
     @Multipart

@@ -29,15 +29,16 @@ public class GoodsPublishedModes {
     List<File> list;
 
     private final List<MultipartBody.Part> partList;
+
     public GoodsPublishedModes(String content, List<File> list) {
         this.content = content;
         this.list = list;
 
         mRetrofit = MRetrofit.getinstance();
         partList = new ArrayList<>();
-        for (File f :list) {
-            RequestBody requestBody = RequestBody.create(MediaType.parse("image/*"),f);
-            MultipartBody.Part ff = MultipartBody.Part.createFormData("jokeFiles",f.getName(),requestBody);
+        for (File f : list) {
+            RequestBody requestBody = RequestBody.create(MediaType.parse("image/*"), f);
+            MultipartBody.Part ff = MultipartBody.Part.createFormData("jokeFiles", f.getName(), requestBody);
             partList.add(ff);
         }
 
@@ -46,11 +47,11 @@ public class GoodsPublishedModes {
 
     public void getPublishedData(final DataPublished dataPublished) {
         String uid = MyApp.getUserInfoSp().getString("userId", "");
-        MultipartBody.Part id = MultipartBody.Part.createFormData("uid",uid);
-        MultipartBody.Part con = MultipartBody.Part.createFormData("content",content);
+        MultipartBody.Part id = MultipartBody.Part.createFormData("uid", uid);
+        MultipartBody.Part con = MultipartBody.Part.createFormData("content", content);
 
 
-        mRetrofit.create(ApiService.class).getPublished(id,con,partList)
+        mRetrofit.create(ApiService.class).getPublished(id, con, partList)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new BlockingBaseObserver<Basebean>() {
