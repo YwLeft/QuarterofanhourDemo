@@ -14,8 +14,6 @@ import com.example.asus.quarterofanhourdemo.base.BaseDataPresenter;
 import butterknife.BindView;
 
 /**
- * 创建时间  2017/11/29 9:31
- * 创建人    gaozhijie
  * 类描述     注册页面
  */
 public class ReferrerActivity extends BaseActivity implements View.OnClickListener {

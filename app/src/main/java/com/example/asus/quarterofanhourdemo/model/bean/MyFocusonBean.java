@@ -1,32 +1,32 @@
 package com.example.asus.quarterofanhourdemo.model.bean;
 
 /**
- * 类描述     登陆的封装类
+ * 类描述    我的关注封装类
  */
-public class LoginBean {
+public class MyFocusonBean {
 
 
     /**
      * age : null
      * appkey : null
      * appsecret : null
-     * createtime : 2017-12-04T14:45:06
+     * createtime : 2017-12-18T13:42:03
      * email : null
      * fans : null
      * follow : null
      * gender : 0
-     * icon : https://www.zhaoapi.cn/images/149.jpg
+     * icon : https://www.zhaoapi.cn/images/1512179089975avator_thump.jpg
      * latitude : null
      * longitude : null
-     * mobile : 13671003717
+     * mobile : 15201392236
      * money : 0
-     * nickname : Yw
-     * password : 123456
+     * nickname : 李灿灿
+     * password : 111111
      * praiseNum : null
-     * token : F3ECCDC85EBE30EF3C054DCB6B7584BD
-     * uid : 149
+     * token : 3E030858FEEED1026B1A1FB5CD5EF9ED
+     * uid : 148
      * userId : null
-     * username : 13671003717
+     * username : 15201392236
      */
 
     private Object age;
@@ -209,5 +209,5 @@ public class LoginBean {
     public void setUsername(String username) {
         this.username = username;
     }
-}
 
+}

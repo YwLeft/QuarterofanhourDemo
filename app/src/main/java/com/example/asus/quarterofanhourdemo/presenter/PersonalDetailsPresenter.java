@@ -10,8 +10,6 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 创建时间  2017/12/16 9:03
- * 创建人    gaozhijie
  * 类描述    个人详情persenter层
  */
 public class PersonalDetailsPresenter extends BaseDataPresenter<PersonalDetailsView> {

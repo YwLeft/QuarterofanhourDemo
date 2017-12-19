@@ -9,8 +9,6 @@ import android.view.WindowManager;
 import butterknife.ButterKnife;
 
 /**
- * 创建时间  2017/11/23 11:15
- * 创建人    gaozhijie
  * 类描述     Activity的基类
  */
 public abstract class BaseActivity<P extends BaseDataPresenter> extends AppCompatActivity {

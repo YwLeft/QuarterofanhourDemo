@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.asus.quarterofanhourdemo.R;
-import com.example.asus.quarterofanhourdemo.view.iview.AnimationImage;
+import com.example.asus.quarterofanhourdemo.view.custom.AnimationImage;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

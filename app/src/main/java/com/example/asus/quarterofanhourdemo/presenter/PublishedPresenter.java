@@ -9,8 +9,6 @@ import java.io.File;
 import java.util.List;
 
 /**
- * 创建时间  2017/12/4 21:09
- * 创建人    gaozhijie
  * 类描述      段子的persenter层
  */
 public class PublishedPresenter extends BaseDataPresenter<PublishedView> {

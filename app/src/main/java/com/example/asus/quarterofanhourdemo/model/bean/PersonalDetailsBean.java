@@ -1,8 +1,6 @@
 package com.example.asus.quarterofanhourdemo.model.bean;
 
 /**
- * 创建时间  2017/12/15 21:06
- * 创建人    gaozhijie
  * 类描述    个人详情封装类
  */
 public class PersonalDetailsBean {

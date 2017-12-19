@@ -17,8 +17,6 @@ import com.example.asus.quarterofanhourdemo.model.net.MyApp;
 import butterknife.BindView;
 
 /**
- * 创建时间  2017/11/28 15:36
- * 创建人    gaozhijie
  * 类描述      设置页面
  */
 public class SetUpThesActivity extends BaseActivity implements View.OnClickListener {

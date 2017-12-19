@@ -24,8 +24,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * 创建时间  2017/12/1 20:46
- * 创建人    gaozhijie
  * 类描述     我的消息
  */
 public class MyAlertsActivity extends BaseActivity {

@@ -21,7 +21,7 @@
                 android:layout_marginTop="@dimen/y190"
                 android:orientation="horizontal">
 
-                <com.example.asus.quarterofanhourdemo.view.iview.AnimationImage
+                <com.example.asus.quarterofanhourdemo.view.custom.AnimationImage
                     android:id="@+id/side_left_image"
                     android:layout_width="@dimen/x80"
                     android:layout_height="@dimen/y80"

@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.asus.quarterofanhourdemo.R;
 import com.example.asus.quarterofanhourdemo.model.bean.PersonalDetailsBean;
-import com.example.asus.quarterofanhourdemo.view.iview.AnimationImage;
+import com.example.asus.quarterofanhourdemo.view.custom.AnimationImage;
 
 import java.util.List;
 

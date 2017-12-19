@@ -13,8 +13,6 @@ import io.reactivex.disposables.Disposable;
 
 
 /**
- * 创建时间  2017/11/27 14:56
- * 创建人    gaozhijie
  * 类描述     Observer基类
  */
 public abstract class BaseObserver<T> implements Observer<Basebean<T>> {

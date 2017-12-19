@@ -54,13 +54,6 @@ public class RecommendFocusonFragment extends BaseFragment implements XRecyclerV
         focusonRecyclerview.setLoadingListener(this);
         focusonRecyclerview.setAdapter(adapter);
 
-        /* adapter.setSetitemonclick(new HotAdapter.setitemonclick() {
-            @Override
-            public void setonitemhol(View view) {
-                Intent intent = new Intent(getContext(), Nextvideoview.class);
-                startActivity(intent);
-            }
-        });*/
     }
 
     @Override

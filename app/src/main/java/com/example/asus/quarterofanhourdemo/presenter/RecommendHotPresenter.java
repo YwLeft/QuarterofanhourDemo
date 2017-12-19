@@ -10,8 +10,6 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 创建时间  2017/12/11 10:33
- * 创建人    gaozhijie
  * 类描述   推荐——热门presenter层
  */
 public class RecommendHotPresenter extends BaseDataPresenter<RecommendHotView>{

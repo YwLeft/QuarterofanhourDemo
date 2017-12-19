@@ -13,8 +13,6 @@ import io.reactivex.internal.observers.BlockingBaseObserver;
 import io.reactivex.schedulers.Schedulers;
 
 /**
- * 创建时间  2017/12/9 11:55
- * 创建人    gaozhijie
  * 类描述   推荐——热门mode层
  */
 public class GoodsRecommendHotModes {

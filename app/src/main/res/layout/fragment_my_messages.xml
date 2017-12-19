@@ -10,7 +10,7 @@
         <!--layout="@layout/my_messages_image"-->
         <!--android:layout_height="wrap_content"-->
         <!--android:layout_marginTop="@dimen/y100"/>-->
-    <com.example.asus.quarterofanhourdemo.view.iview.AnimationView
+    <com.example.asus.quarterofanhourdemo.view.custom.AnimationView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/y100"

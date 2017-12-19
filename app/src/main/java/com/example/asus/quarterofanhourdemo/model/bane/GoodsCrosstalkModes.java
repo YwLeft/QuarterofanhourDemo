@@ -12,8 +12,6 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
 /**
- * 创建时间  2017/11/27 14:56
- * 创建人    gaozhijie
  * 类描述     段子的mode层
  */
 public class GoodsCrosstalkModes {

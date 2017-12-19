@@ -12,8 +12,6 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 /**
- * 创建时间  2017/11/23 11:15
- * 创建人    gaozhijie
  * 类描述     Fragmeng的基类
  */
 public abstract class BaseFragment<P extends BaseDataPresenter> extends Fragment {

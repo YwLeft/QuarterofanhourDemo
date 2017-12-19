@@ -39,7 +39,6 @@ public class VideoNearbyFragment extends BaseFragment implements XRecyclerView.L
 
     @Override
     public BaseDataPresenter initPresenter() {
-        presenter = new VideoHotPresenter(this);
         return presenter;
     }
 
@@ -50,6 +49,7 @@ public class VideoNearbyFragment extends BaseFragment implements XRecyclerView.L
 
     @Override
     public void initView() {
+        presenter = new VideoHotPresenter(this);
         Map<String, String> map = new HashMap<>();
         String pages = String.valueOf(page);
         map.put("page", pages);

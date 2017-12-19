@@ -14,7 +14,7 @@
         android:gravity="center"
         android:orientation="horizontal">
 
-        <com.example.asus.quarterofanhourdemo.view.iview.AnimationImage
+        <com.example.asus.quarterofanhourdemo.view.custom.AnimationImage
             android:id="@+id/recommend_item_tous"
             android:layout_width="@dimen/x80"
             android:layout_height="@dimen/y80" />

@@ -2,7 +2,6 @@ package com.example.asus.quarterofanhourdemo.view.acyivity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -20,10 +19,10 @@ import com.example.asus.quarterofanhourdemo.model.net.MyApp;
 import com.example.asus.quarterofanhourdemo.presenter.FocusonPresenter;
 import com.example.asus.quarterofanhourdemo.presenter.PersonalDetailsPresenter;
 import com.example.asus.quarterofanhourdemo.view.adapter.PersonalDetailsAdapter;
-import com.example.asus.quarterofanhourdemo.view.iview.AnimationImage;
+import com.example.asus.quarterofanhourdemo.view.custom.AnimationImage;
+import com.example.asus.quarterofanhourdemo.view.custom.PullScrollView;
 import com.example.asus.quarterofanhourdemo.view.iview.FocusonView;
 import com.example.asus.quarterofanhourdemo.view.iview.PersonalDetailsView;
-import com.example.asus.quarterofanhourdemo.view.iview.PullScrollView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -31,12 +30,9 @@ import java.util.List;
 import java.util.Map;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 
 /**
- * 创建时间  2017/12/1 11:26
- * 创建人    gaozhijie
  * 类描述    个人详情
  */
 public class PulldownViewActivity extends BaseActivity implements PullScrollView.OnTurnListener, View.OnClickListener, PersonalDetailsView, FocusonView {
@@ -56,6 +52,8 @@ public class PulldownViewActivity extends BaseActivity implements PullScrollView
     RecyclerView PersonalDetailsRecycler;
     @BindView(R.id.scroll_view)
     PullScrollView mScrollView;
+    @BindView(R.id.Personal_details_namess)
+    TextView PersonalDetailsNamess;
     private PersonalDetailsPresenter presenter;
     private int page = 1;
     private List<PersonalDetailsBean> data = new ArrayList<>();
@@ -83,6 +81,8 @@ public class PulldownViewActivity extends BaseActivity implements PullScrollView
         String nickname = intent.getStringExtra("nickname");
         //设置头像
         Glide.with(this).load(tou).into(PersonalDetailsTou);
+        //设置名字
+        PersonalDetailsNamess.setText(nickname);
         Map<String, String> map = new HashMap<>();
         map.put("uid", uid);
         map.put("page", String.valueOf(page));
@@ -90,6 +90,7 @@ public class PulldownViewActivity extends BaseActivity implements PullScrollView
         presenter.getData(map);
         PersonalDetailsReturn.setOnClickListener(this);
         PersonalDetailsGuanzhu.setOnClickListener(this);
+        PersonalDetailsZan.setOnClickListener(this);
     }
 
     @Override
@@ -114,6 +115,11 @@ public class PulldownViewActivity extends BaseActivity implements PullScrollView
                 map.put("followId", uid);
                 FocusonPresenter focusonPresenter = new FocusonPresenter(this);
                 focusonPresenter.getData(map);
+                break;
+            case R.id.Personal_details_zan:
+                if (PersonalDetailsZan.getText().equals("16")) {
+                    PersonalDetailsZan.setText("17");
+                }
                 break;
             default:
                 break;
@@ -156,15 +162,13 @@ public class PulldownViewActivity extends BaseActivity implements PullScrollView
     public void onGetFocusonSucceed(Basebean bean) {
         int code = Integer.parseInt(bean.getCode());
         String msg = bean.getMsg();
-        if (code == 0) {
+        if (code == 2) {
             Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
-            PersonalDetailsGuanzhu.setBackgroundResource(R.drawable.shapeguan);
-            // bean.setGuan(true);
-        } else if (code == 1) {
-            Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
-            PersonalDetailsGuanzhu.setBackgroundResource(R.drawable.shapeguan);
         } else {
             Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+            PersonalDetailsGuanzhu.setBackgroundResource(R.drawable.shapeguan);
+            PersonalDetailsGuanzhu.setText("已关注");
+            PersonalDetailsGuanzhu.setTextColor(getResources().getColor(R.color.white));
         }
     }
 
@@ -173,10 +177,4 @@ public class PulldownViewActivity extends BaseActivity implements PullScrollView
         Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show();
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
-    }
 }

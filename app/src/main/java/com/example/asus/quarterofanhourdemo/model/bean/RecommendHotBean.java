@@ -3,8 +3,6 @@ package com.example.asus.quarterofanhourdemo.model.bean;
 import java.util.List;
 
 /**
- * 创建时间  2017/12/7 20:33
- * 创建人    gaozhijie
  * 类描述    推荐——热门封装类
  */
 public class RecommendHotBean {

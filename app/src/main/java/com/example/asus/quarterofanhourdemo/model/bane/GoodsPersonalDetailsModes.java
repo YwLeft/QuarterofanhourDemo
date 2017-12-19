@@ -13,8 +13,6 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
 /**
- * 创建时间  2017/12/16 8:47
- * 创建人    gaozhijie
  * 类描述     个人详情modes
  */
 public class GoodsPersonalDetailsModes {

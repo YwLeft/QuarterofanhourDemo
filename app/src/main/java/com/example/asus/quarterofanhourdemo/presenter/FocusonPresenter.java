@@ -8,9 +8,7 @@ import com.example.asus.quarterofanhourdemo.view.iview.FocusonView;
 import java.util.Map;
 
 /**
- * 创建时间  2017/12/16 9:03
- * 创建人    gaozhijie
- * 类描述    个人关注persenter层
+ * 类描述    关注的Presenter层
  */
 public class FocusonPresenter extends BaseDataPresenter<FocusonView> {
 

@@ -36,7 +36,7 @@
             android:text="我是名字"
             android:textSize="20sp"
             android:textColor="@color/colorwhile"
-            android:layout_marginLeft="@dimen/x400"
+            android:layout_marginLeft="@dimen/x390"
            />
 
         <ImageView
@@ -65,7 +65,7 @@
 
     </RelativeLayout>
 
-    <com.example.asus.quarterofanhourdemo.view.iview.PullScrollView
+    <com.example.asus.quarterofanhourdemo.view.custom.PullScrollView
         android:id="@+id/scroll_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -143,7 +143,7 @@
                         android:textSize="17sp" />
                 </RelativeLayout>
 
-                <com.example.asus.quarterofanhourdemo.view.iview.AnimationImage
+                <com.example.asus.quarterofanhourdemo.view.custom.AnimationImage
                     android:id="@+id/Personal_details_tou"
                     android:layout_width="@dimen/x150"
                     android:layout_height="@dimen/y150"
@@ -187,7 +187,7 @@
             </LinearLayout>
     </LinearLayout>
 
-    </com.example.asus.quarterofanhourdemo.view.iview.PullScrollView>
+    </com.example.asus.quarterofanhourdemo.view.custom.PullScrollView>
 
 
 </RelativeLayout>

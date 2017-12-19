@@ -3,6 +3,7 @@ package com.example.asus.quarterofanhourdemo.model.net;
 import com.example.asus.quarterofanhourdemo.base.Basebean;
 import com.example.asus.quarterofanhourdemo.model.bean.CrosstalkBean;
 import com.example.asus.quarterofanhourdemo.model.bean.LoginBean;
+import com.example.asus.quarterofanhourdemo.model.bean.MyFocusonBean;
 import com.example.asus.quarterofanhourdemo.model.bean.PersonalDetailsBean;
 import com.example.asus.quarterofanhourdemo.model.bean.RecommendHotBean;
 import com.example.asus.quarterofanhourdemo.model.bean.VideoHotBean;
@@ -20,8 +21,6 @@ import retrofit2.http.Part;
 import retrofit2.http.QueryMap;
 
 /**
- * 创建时间  2017/12/2 14:41
- * 创建人    gaozhijie
  * 类描述    接口
  */
 public interface ApiService {
@@ -52,9 +51,14 @@ public interface ApiService {
     @POST("quarter/getHotVideos")
     Observable<Basebean<List<VideoHotBean>>> getVideoHotBean(@QueryMap Map<String,String> map);
 
-    //个人关注
+    //关注
     @POST("quarter/follow")
     Observable<Basebean> getFocuson(@QueryMap Map<String,String> map);
+
+    //关注列表
+    @FormUrlEncoded
+    @POST("quarter/getFollowUsers")
+    Observable<Basebean<List<MyFocusonBean>>> getMyFocuson(@Field("uid") String  uid);
 
     //发布段子
     @Multipart

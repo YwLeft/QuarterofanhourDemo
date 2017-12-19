@@ -48,7 +48,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1" />
 
-        <com.example.asus.quarterofanhourdemo.view.iview.AnimationImage
+        <com.example.asus.quarterofanhourdemo.view.custom.AnimationImage
             android:id="@+id/video_item_tou"
             android:layout_width="@dimen/x80"
             android:layout_height="@dimen/y80"

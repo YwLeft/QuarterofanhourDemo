@@ -26,8 +26,6 @@ import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import butterknife.BindView;
 
 /**
- * 创建时间  2017/11/23 11:20
- * 创建人    gaozhijie
  * 类描述      主页面
  */
 public class TheHomePageActivity extends BaseActivity implements View.OnClickListener {

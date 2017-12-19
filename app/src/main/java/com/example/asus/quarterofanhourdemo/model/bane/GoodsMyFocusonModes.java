@@ -2,10 +2,11 @@ package com.example.asus.quarterofanhourdemo.model.bane;
 
 import com.example.asus.quarterofanhourdemo.base.BaseObserver;
 import com.example.asus.quarterofanhourdemo.base.Basebean;
+import com.example.asus.quarterofanhourdemo.model.bean.MyFocusonBean;
 import com.example.asus.quarterofanhourdemo.model.net.ApiService;
 import com.example.asus.quarterofanhourdemo.model.net.MRetrofit;
 
-import java.util.Map;
+import java.util.List;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
@@ -13,27 +14,26 @@ import io.reactivex.schedulers.Schedulers;
 /**
  * 类描述    我的关注的mode层
  */
-public class GoodsFocusonModes {
+public class GoodsMyFocusonModes {
     private MRetrofit mRetrofit;
 
-    public GoodsFocusonModes() {
+    public GoodsMyFocusonModes() {
         mRetrofit = MRetrofit.getinstance();
     }
 
-    public void getFocusoModes(final DataFocuso dataFocuso, Map<String, String> map) {
-        mRetrofit.create(ApiService.class)
-                .getFocuson(map)
+    public void getFocuson(final DataFocuson dataFocuson, String uid) {
+        mRetrofit.create(ApiService.class).getMyFocuson(uid)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new BaseObserver() {
+                .subscribe(new BaseObserver<List<MyFocusonBean>>() {
                     @Override
-                    protected void onSuccees(Basebean t) throws Exception {
-                        dataFocuso.setbutteck(t);
+                    protected void onSuccees(Basebean<List<MyFocusonBean>> t) throws Exception {
+                        dataFocuson.setbutteck(t);
                     }
 
                     @Override
                     protected void onFailure(Throwable e) throws Exception {
-                        dataFocuso.setfile(e.toString());
+                        dataFocuson.setfile(e.toString());
                     }
                 });
     }
@@ -41,8 +41,8 @@ public class GoodsFocusonModes {
     /**
      * 定义两个接口，一个成功，一个失败
      */
-    public interface DataFocuso {
-        void setbutteck(Basebean bean);
+    public interface DataFocuson {
+        void setbutteck(Basebean<List<MyFocusonBean>> bean);
 
         void setfile(String s);
     }

@@ -1,8 +1,6 @@
 package com.example.asus.quarterofanhourdemo.model.bean;
 
 /**
- * 创建时间  2017/11/27 9:28
- * 创建人    gaozhijie
  * 类描述    段子的封装类
  */
 public class CrosstalkBean{

@@ -18,6 +18,7 @@ import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.asus.quarterofanhourdemo.R;
@@ -33,8 +34,6 @@ import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
 import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard;
 
 /**
- * 创建时间  2017/11/25 10:05
- * 创建人    gaozhijie
  * 类描述    热门/关注的适配器
  */
 public class HotAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
@@ -46,7 +45,8 @@ public class HotAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private int mHeaderCount = 1;
     List<RecommendHotBean> mlist_ry;
     List<Integer> mlist;
-    private RecommendHotBean recommendHotBean;
+    private boolean like = false;
+    private boolean shou = false;
 
     public HotAdapter(List<RecommendHotBean> data, Context context, List<Integer> mlist) {
         this.mContext = context;
@@ -71,8 +71,10 @@ public class HotAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 
     public static class ContentViewHolder extends RecyclerView.ViewHolder {
-        private TextView textView_title,textView_time,textView_item_title,textone,texttwo;
+        private TextView textView_title, textView_time, textView_item_title, textone, texttwo;
         private RadioButton donghua1, donghua2, donghua3, donghua4, donghua5;
+        private ImageView dh1, dh2, dh3, dh4;
+        private TextView tv1, tv2;
         private ImageView imageView_item;
         private final JCVideoPlayerStandard viewById;
 
@@ -92,6 +94,12 @@ public class HotAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             donghua3 = itemView.findViewById(R.id.recommend_item_dong3);
             donghua4 = itemView.findViewById(R.id.recommend_item_dong4);
             donghua5 = itemView.findViewById(R.id.recommend_item_dong5);
+
+            dh1 = itemView.findViewById(R.id.recommend_item_rb01);
+            dh2 = itemView.findViewById(R.id.recommend_item_rb02);
+
+            tv1 = itemView.findViewById(R.id.tv_item_like);
+            tv2 = itemView.findViewById(R.id.tv_item_shou);
         }
     }
 
@@ -103,21 +111,6 @@ public class HotAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             banneritem = itemView.findViewById(R.id.banner);
         }
     }
-
-  /* *//*
-     * 自定义的接口
-     * 并暴露
-     *//*
-    public interface setitemonclick {
-        void setonitemhol(View view);
-    }
-
-    setitemonclick setitemonclick;
-
-
-    public void setSetitemonclick(HotAdapter.setitemonclick setitemonclick) {
-        this.setitemonclick = setitemonclick;
-    }*/
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -159,9 +152,9 @@ public class HotAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                     String cover = recommendHotBean.getUser().getIcon();
                     String nickname = recommendHotBean.getUser().getNickname();
                     Intent intent = new Intent(mContext, PulldownViewActivity.class);
-                    intent.putExtra("uid",uid);
-                    intent.putExtra("tou",cover);
-                    intent.putExtra("nickname",nickname);
+                    intent.putExtra("uid", uid);
+                    intent.putExtra("tou", cover);
+                    intent.putExtra("nickname", nickname);
                     mContext.startActivity(intent);
                 }
             });
@@ -178,6 +171,43 @@ public class HotAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                     .into(((ContentViewHolder) holder).imageView_item);
             //视频
             ((ContentViewHolder) holder).viewById.setUp(recommendHotBean.getVideoUrl(), JCVideoPlayer.SCREEN_LAYOUT_LIST);
+            //喜欢点击变换
+            ((ContentViewHolder) holder).dh1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (like) {
+                        ((ContentViewHolder) holder).dh1.setBackgroundResource(R.drawable.baixin);
+                        ((ContentViewHolder) holder).tv1.setText("1563");
+                        Toast.makeText(mContext, "讨厌于她", Toast.LENGTH_SHORT).show();
+                        like = false;
+                    } else {
+                        ((ContentViewHolder) holder).dh1.setBackgroundResource(R.drawable.bianxin);
+                        ((ContentViewHolder) holder).tv1.setText("1564");
+                        Toast.makeText(mContext, "喜欢于她", Toast.LENGTH_SHORT).show();
+                        like = true;
+                    }
+
+                }
+            });
+
+            //收藏点击变换
+            ((ContentViewHolder) holder).dh2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (shou) {
+                        ((ContentViewHolder) holder).dh2.setBackgroundResource(R.drawable.baixing);
+                        ((ContentViewHolder) holder).tv2.setText("665");
+                        Toast.makeText(mContext, "取出于她", Toast.LENGTH_SHORT).show();
+                        shou = false;
+                    } else {
+                        ((ContentViewHolder) holder).dh2.setBackgroundResource(R.drawable.bianwu);
+                        ((ContentViewHolder) holder).tv2.setText("666");
+                        Toast.makeText(mContext, "收藏于她", Toast.LENGTH_SHORT).show();
+                        shou = true;
+                    }
+
+                }
+            });
 
             //封面
             Glide.with(mContext)

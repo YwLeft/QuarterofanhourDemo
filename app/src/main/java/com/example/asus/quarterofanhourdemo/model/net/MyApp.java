@@ -5,8 +5,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 /**
- * 创建时间  2017/11/27 15:05
- * 创建人    gaozhijie
  * 类描述      app
  */
 public class MyApp extends Application {

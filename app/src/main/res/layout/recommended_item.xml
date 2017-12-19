@@ -14,7 +14,7 @@
         android:gravity="center"
         android:orientation="horizontal">
 
-        <com.example.asus.quarterofanhourdemo.view.iview.AnimationImage
+        <com.example.asus.quarterofanhourdemo.view.custom.AnimationImage
             android:id="@+id/recommend_item_tou"
             android:layout_width="@dimen/x80"
             android:layout_height="@dimen/y80"
@@ -153,14 +153,13 @@
         <fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard
             android:id="@+id/videoplayer"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/y450" />
+            android:layout_height="match_parent" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal"
             android:gravity="center"
-            >
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="0dp"
@@ -174,50 +173,62 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
-                <RadioButton
+                <ImageView
+                    android:id="@+id/recommend_item_rb01"
                     android:layout_width="wrap_content"
-                    android:layout_height="0dp"
-                    android:layout_marginTop="@dimen/y20"
-                    android:layout_weight="1"
-                    android:button="@null"
-                    android:drawableTop="@drawable/baixin"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/baixin"
+                    />
+                <TextView
+                    android:id="@+id/tv_item_like"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="1563"
                     android:textColor="@color/colorwhile" />
 
-                <RadioButton
+                <ImageView
+                    android:id="@+id/recommend_item_rb02"
                     android:layout_width="wrap_content"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:button="@null"
-                    android:drawableTop="@drawable/pinglun"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/baixing" />
+
+                <TextView
+                    android:id="@+id/tv_item_shou"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="665"
                     android:textColor="@color/colorwhile" />
 
-                <RadioButton
+                <ImageView
+                    android:id="@+id/recommend_item_rb03"
                     android:layout_width="wrap_content"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:button="@null"
-                    android:drawableTop="@drawable/baixing"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/pinglun" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="503"
                     android:textColor="@color/colorwhile" />
 
-                <RadioButton
+                <ImageView
+                    android:id="@+id/recommend_item_rb04"
                     android:layout_width="wrap_content"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:button="@null"
-                    android:drawableTop="@drawable/fenxiang"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/fenxiang" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="153"
                     android:textColor="@color/colorwhile" />
             </LinearLayout>
 
         </LinearLayout>
-
 
     </FrameLayout>
 
@@ -226,26 +237,26 @@
         android:id="@+id/recommend_item_commentsone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/y20"
         android:text="汽猪上高速  :不错"
         android:textColor="@color/colorhui"
-        android:textSize="13sp"
-        android:layout_marginTop="@dimen/y20"/>
+        android:textSize="13sp" />
 
 
     <TextView
         android:id="@+id/recommend_item_commentstwo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/y20"
         android:text="汽猪上高速  :不错"
         android:textColor="@color/colorhui"
-        android:textSize="13sp"
-        android:layout_marginTop="@dimen/y20"/>
+        android:textSize="13sp" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/colorhui"
-        android:layout_marginTop="@dimen/y20"/>
+        android:layout_marginTop="@dimen/y20"
+        android:background="@color/colorhui" />
 
 
 </LinearLayout>

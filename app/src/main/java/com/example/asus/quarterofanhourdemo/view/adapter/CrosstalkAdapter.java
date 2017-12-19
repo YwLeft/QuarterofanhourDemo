@@ -25,8 +25,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * 创建时间  2017/11/27 18:52
- * 创建人    gaozhijie
  * 类描述      段子适配器
  */
 public class CrosstalkAdapter extends RecyclerView.Adapter<CrosstalkAdapter.ViewHolder> {

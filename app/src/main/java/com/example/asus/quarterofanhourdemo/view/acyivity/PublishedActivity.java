@@ -17,7 +17,7 @@ import com.example.asus.quarterofanhourdemo.base.BaseDataPresenter;
 import com.example.asus.quarterofanhourdemo.base.Basebean;
 import com.example.asus.quarterofanhourdemo.presenter.PublishedPresenter;
 import com.example.asus.quarterofanhourdemo.view.adapter.GridImageAdapter;
-import com.example.asus.quarterofanhourdemo.view.iview.FullyGridLayoutManager;
+import com.example.asus.quarterofanhourdemo.view.custom.FullyGridLayoutManager;
 import com.example.asus.quarterofanhourdemo.view.iview.PublishedView;
 import com.luck.picture.lib.PictureSelector;
 import com.luck.picture.lib.config.PictureConfig;
@@ -35,8 +35,6 @@ import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 
 /**
- * 创建时间  2017/12/1 11:26
- * 创建人    gaozhijie
  * 类描述    发布段子
  */
 public class PublishedActivity extends BaseActivity implements View.OnClickListener, PublishedView {

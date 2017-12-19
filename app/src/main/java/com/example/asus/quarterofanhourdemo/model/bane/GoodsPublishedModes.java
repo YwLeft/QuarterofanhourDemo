@@ -17,8 +17,6 @@ import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 
 /**
- * 创建时间  2017/11/29 9:56
- * 创建人    gaozhijie
  * 类描述    发布段子的mode层
  */
 public class GoodsPublishedModes {

@@ -9,7 +9,11 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.asus.quarterofanhourdemo.R;
+import com.example.asus.quarterofanhourdemo.model.bean.MyFocusonBean;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -21,9 +25,10 @@ import butterknife.ButterKnife;
  */
 public class MyFocusonAdapter extends RecyclerView.Adapter<MyFocusonAdapter.ViewHolder> {
     public Context context;
-
-    public MyFocusonAdapter(Context context) {
+    List<MyFocusonBean> data;
+    public MyFocusonAdapter(Context context, List<MyFocusonBean> data) {
         this.context = context;
+        this.data = data;
     }
 
     @Override
@@ -35,12 +40,15 @@ public class MyFocusonAdapter extends RecyclerView.Adapter<MyFocusonAdapter.View
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-
+        MyFocusonBean bean = data.get(position);
+        Glide.with(context).load(bean.getIcon()).into(holder.myFocusoItemTou);
+        holder.myFocusoTime.setText(bean.getCreatetime());
+        holder.myFocusoTitle.setText(bean.getNickname());
     }
 
     @Override
     public int getItemCount() {
-        return 6;
+        return data==null?0:data.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

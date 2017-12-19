@@ -9,15 +9,13 @@ import com.bumptech.glide.Glide;
 import com.example.asus.quarterofanhourdemo.R;
 import com.example.asus.quarterofanhourdemo.base.BaseActivity;
 import com.example.asus.quarterofanhourdemo.base.BaseDataPresenter;
-import com.example.asus.quarterofanhourdemo.view.iview.AnimationImage;
+import com.example.asus.quarterofanhourdemo.view.custom.AnimationImage;
 
 import butterknife.BindView;
 import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
 import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard;
 
 /**
- * 创建时间  2017/12/14 18:48
- * 创建人    gaozhijie
  * 类描述     视频详情
  */
 public class VoideActivity extends BaseActivity {

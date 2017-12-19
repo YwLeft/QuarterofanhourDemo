@@ -10,8 +10,6 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
 /**
- * 创建时间  2017/11/29 9:56
- * 创建人    gaozhijie
  * 类描述    登陆的mode层
  */
 public class GoodsLoginModes {

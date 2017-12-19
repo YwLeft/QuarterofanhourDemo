@@ -10,8 +10,6 @@ import okhttp3.Interceptor;
 import okhttp3.Request;
 
 /**
- * 创建时间  2017/11/27 15:47
- * 创建人    gaozhijie
  * 类描述      ok的拦截器
  */
 public class LogInterceptor implements Interceptor {

@@ -9,8 +9,6 @@ import com.example.asus.quarterofanhourdemo.view.iview.CrosstalkView;
 import java.util.List;
 
 /**
- * 创建时间  2017/11/27 16:17
- * 创建人    gaozhijie
  * 类描述    段子的Presenter层
  */
 public class CrosstalkPresenter extends BaseDataPresenter<CrosstalkView> {

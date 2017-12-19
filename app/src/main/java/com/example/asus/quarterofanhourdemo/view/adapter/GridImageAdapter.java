@@ -28,8 +28,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 创建时间  2017/11/30 10:57
- * 创建人    gaozhijie
  * 类描述    上传图片的适合配器
  */
 public class GridImageAdapter extends RecyclerView.Adapter<GridImageAdapter.ViewHolder> {

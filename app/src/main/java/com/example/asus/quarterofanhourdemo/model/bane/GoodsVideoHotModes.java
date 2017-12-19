@@ -13,8 +13,6 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
 /**
- * 创建时间  2017/12/13 19:08
- * 创建人    gaozhijie
  * 类描述     视频——热门mode层
  */
 public class GoodsVideoHotModes {
