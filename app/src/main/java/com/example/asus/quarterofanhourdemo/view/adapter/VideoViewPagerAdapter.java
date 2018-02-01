@@ -7,8 +7,6 @@ import android.support.v4.app.FragmentPagerAdapter;
 import java.util.List;
 
 /**
- * 创建时间  2017/11/23 20:00
- * 创建人    gaozhijie
  * 类描述	ViewPager+Fragment 的适配器(视频)
  */
 public class VideoViewPagerAdapter extends FragmentPagerAdapter {
