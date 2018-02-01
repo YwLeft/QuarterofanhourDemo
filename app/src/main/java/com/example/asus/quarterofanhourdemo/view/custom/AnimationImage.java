@@ -20,8 +20,6 @@ import android.widget.ImageView;
 import com.example.asus.quarterofanhourdemo.R;
 
 /**
- * 创建时间  2017/11/23 18:35
- * 创建人    gaozhijie
  * 类描述      自定义的圆形图片
  */
 
